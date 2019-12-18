@@ -79,14 +79,14 @@
 
 
 
-<meta name="description" content="1sudo xargs rm &lt; install_manifest.txt  缺点是不会删除目录">
+<meta name="description" content="awk调用system输出没有经过export的变量1234root@ubuntu:~# abc&#x3D;12345567890root@ubuntu:~# awk &#39;BEGIN&amp;#123;system(&quot;echo $abc&quot;)&amp;#125;&#39;root@ubuntu:~#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="删除cmake工程下使用make install安装的文件">
-<meta property="og:url" content="https:&#x2F;&#x2F;michaelchao.github.io&#x2F;2019&#x2F;12&#x2F;16&#x2F;%E5%88%A0%E9%99%A4cmake%E5%B7%A5%E7%A8%8B%E4%B8%8B%E4%BD%BF%E7%94%A8make%20install%E5%AE%89%E8%A3%85%E7%9A%84%E6%96%87%E4%BB%B6&#x2F;index.html">
+<meta property="og:title" content="export和不export对变量的影响">
+<meta property="og:url" content="https:&#x2F;&#x2F;michaelchao.github.io&#x2F;2019&#x2F;12&#x2F;17&#x2F;export%E5%92%8C%E4%B8%8Dexport%E5%AF%B9%E5%8F%98%E9%87%8F%E7%9A%84%E5%BD%B1%E5%93%8D&#x2F;index.html">
 <meta property="og:site_name" content="MichaelChao">
-<meta property="og:description" content="1sudo xargs rm &lt; install_manifest.txt  缺点是不会删除目录">
-<meta property="article:published_time" content="2019-12-16T12:18:52.000Z">
-<meta property="article:modified_time" content="2019-12-16T12:20:54.497Z">
+<meta property="og:description" content="awk调用system输出没有经过export的变量1234root@ubuntu:~# abc&#x3D;12345567890root@ubuntu:~# awk &#39;BEGIN&amp;#123;system(&quot;echo $abc&quot;)&amp;#125;&#39;root@ubuntu:~#">
+<meta property="article:published_time" content="2019-12-17T12:05:00.000Z">
+<meta property="article:modified_time" content="2019-12-18T07:47:11.308Z">
 <meta property="article:author" content="MichaelMa">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://michaelchao.github.io/2019/12/16/删除cmake工程下使用make install安装的文件/"/>
+  <link rel="canonical" href="https://michaelchao.github.io/2019/12/17/export和不export对变量的影响/"/>
 
 
 
 
 
-  <title>删除cmake工程下使用make install安装的文件 | MichaelChao</title>
+  <title>export和不export对变量的影响 | MichaelChao</title>
   
 
 
@@ -242,7 +242,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2019/12/16/%E5%88%A0%E9%99%A4cmake%E5%B7%A5%E7%A8%8B%E4%B8%8B%E4%BD%BF%E7%94%A8make%20install%E5%AE%89%E8%A3%85%E7%9A%84%E6%96%87%E4%BB%B6/">
+    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2019/12/17/export%E5%92%8C%E4%B8%8Dexport%E5%AF%B9%E5%8F%98%E9%87%8F%E7%9A%84%E5%BD%B1%E5%93%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MichaelMa">
@@ -259,7 +259,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">删除cmake工程下使用make install安装的文件</h1>
+          <h1 class="post-title" itemprop="name headline">export和不export对变量的影响</h1>
         
 
         <div class="post-meta">
@@ -271,8 +271,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-16T20:18:52+08:00">
-                2019-12-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-17T20:05:00+08:00">
+                2019-12-17
               </time>
             
 
@@ -309,9 +309,18 @@
       
 
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo xargs rm &lt; install_manifest.txt</span><br></pre></td></tr></table></figure>
+        <h4 id="awk调用system输出没有经过export的变量"><a href="#awk调用system输出没有经过export的变量" class="headerlink" title="awk调用system输出没有经过export的变量"></a>awk调用system输出没有经过export的变量</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu:~<span class="meta"># abc=12345567890</span></span><br><span class="line">root@ubuntu:~# awk 'BEGIN&#123;system("echo $abc")&#125;'</span><br><span class="line"></span><br><span class="line">root@ubuntu:~#</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="awk调用system输出经过export的变量"><a href="#awk调用system输出经过export的变量" class="headerlink" title="awk调用system输出经过export的变量"></a>awk调用system输出经过export的变量</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu:~<span class="meta"># export abc=12345567890</span></span><br><span class="line">root@ubuntu:~# awk 'BEGIN&#123;system("echo $abc")&#125;'</span><br><span class="line"><span class="number">12345567890</span></span><br><span class="line">root@ubuntu:~#</span><br></pre></td></tr></table></figure>
 
-<p>缺点是不会删除目录</p>
+<h4 id="awk调用管道符号将没有经过export的变量传给bash"><a href="#awk调用管道符号将没有经过export的变量传给bash" class="headerlink" title="awk调用管道符号将没有经过export的变量传给bash"></a>awk调用管道符号将没有经过export的变量传给bash</h4><blockquote>
+<p>awk没有解释$符号的能力，所以将$修饰的变量传递给能解释的程序，比如system调用或者bash</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu:~<span class="meta"># abc=1234567890</span></span><br><span class="line">root@ubuntu:~# awk 'BEGIN&#123;print "echo","$abc"| "/bin/bash"&#125;'</span><br><span class="line"></span><br><span class="line">root@ubuntu:~#</span><br></pre></td></tr></table></figure>
+
+<h4 id="awk调用管道符号将经过export的变量传给bash"><a href="#awk调用管道符号将经过export的变量传给bash" class="headerlink" title="awk调用管道符号将经过export的变量传给bash"></a>awk调用管道符号将经过export的变量传给bash</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu:~<span class="meta"># export abc=1234567890</span></span><br><span class="line">root@ubuntu:~# awk 'BEGIN&#123;print "echo","$abc"| "/bin/bash"&#125;'</span><br><span class="line"><span class="number">1234567890</span></span><br><span class="line">root@ubuntu:~#</span><br></pre></td></tr></table></figure>
+
+<p>以上例子，没有<strong>export</strong>的话，那些变量都是只存在于当前shell变量中，所以都是echo不出来的，<br>而使用了<strong>export</strong>的都是环境变量，所以awk调用新的shell时候，可以echo出来。</p>
 
       
     </div>
@@ -342,14 +351,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/12/17/%E8%A7%A3%E5%8E%8B/" rel="next" title="解压">
+                <i class="fa fa-chevron-left"></i> 解压
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/12/16/%E6%9F%A5%E7%9C%8B%E9%9D%99%E6%80%81%E5%BA%93%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E5%93%AA%E4%BA%9Bo%E6%96%87%E4%BB%B6/" rel="prev" title="查看静态库文件包含哪些o文件">
-                查看静态库文件包含哪些o文件 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/12/18/cp%E5%91%BD%E4%BB%A4/" rel="prev" title="cp命令">
+                cp命令 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -402,8 +415,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -454,6 +476,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#awk调用system输出没有经过export的变量"><span class="nav-number">1.</span> <span class="nav-text">awk调用system输出没有经过export的变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#awk调用system输出经过export的变量"><span class="nav-number">2.</span> <span class="nav-text">awk调用system输出经过export的变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#awk调用管道符号将没有经过export的变量传给bash"><span class="nav-number">3.</span> <span class="nav-text">awk调用管道符号将没有经过export的变量传给bash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#awk调用管道符号将经过export的变量传给bash"><span class="nav-number">4.</span> <span class="nav-text">awk调用管道符号将经过export的变量传给bash</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
