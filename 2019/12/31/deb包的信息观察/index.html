@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="c/c++," />
+  <meta name="keywords" content="Linux," />
 
 
 
@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="123int a, b;int * const p1 &#x3D; &amp;a; &#x2F;&#x2F; p1为指针常量int const * p2 &#x3D; &amp;b; &#x2F;&#x2F; p2为常量指针  读法：指针(*)与常量(const)谁在前先读谁  指针常量表示指针不能变，不能指向其他地址，但可以通过指针改变所指地址的值 常量指针表示不能通过指针改变所指地址的值，但指针可以指向其他地址 常量指针和指针常量都可以赋值给常量指针，">
+<meta name="description" content="列出包中所有文件和目录信息。配合grep可以查看包中是否有要查询的信息 1dpkg -c deb包">
 <meta property="og:type" content="article">
-<meta property="og:title" content="指针常量和常量指针的区别">
-<meta property="og:url" content="https:&#x2F;&#x2F;michaelchao.github.io&#x2F;2019&#x2F;12&#x2F;20&#x2F;%E6%8C%87%E9%92%88%E5%B8%B8%E9%87%8F%E5%92%8C%E5%B8%B8%E9%87%8F%E6%8C%87%E9%92%88%E7%9A%84%E5%8C%BA%E5%88%AB&#x2F;index.html">
+<meta property="og:title" content="deb包的信息观察">
+<meta property="og:url" content="https:&#x2F;&#x2F;michaelchao.github.io&#x2F;2019&#x2F;12&#x2F;31&#x2F;deb%E5%8C%85%E7%9A%84%E4%BF%A1%E6%81%AF%E8%A7%82%E5%AF%9F&#x2F;index.html">
 <meta property="og:site_name" content="MichaelChao">
-<meta property="og:description" content="123int a, b;int * const p1 &#x3D; &amp;a; &#x2F;&#x2F; p1为指针常量int const * p2 &#x3D; &amp;b; &#x2F;&#x2F; p2为常量指针  读法：指针(*)与常量(const)谁在前先读谁  指针常量表示指针不能变，不能指向其他地址，但可以通过指针改变所指地址的值 常量指针表示不能通过指针改变所指地址的值，但指针可以指向其他地址 常量指针和指针常量都可以赋值给常量指针，">
+<meta property="og:description" content="列出包中所有文件和目录信息。配合grep可以查看包中是否有要查询的信息 1dpkg -c deb包">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2019-12-20T02:26:00.000Z">
-<meta property="article:modified_time" content="2019-12-27T02:14:42.471Z">
+<meta property="article:published_time" content="2019-12-31T02:46:00.000Z">
+<meta property="article:modified_time" content="2019-12-31T02:46:39.882Z">
 <meta property="article:author" content="MichaelMa">
-<meta property="article:tag" content="c&#x2F;c++">
+<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://michaelchao.github.io/2019/12/20/指针常量和常量指针的区别/"/>
+  <link rel="canonical" href="https://michaelchao.github.io/2019/12/31/deb包的信息观察/"/>
 
 
 
 
 
-  <title>指针常量和常量指针的区别 | MichaelChao</title>
+  <title>deb包的信息观察 | MichaelChao</title>
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2019/12/20/%E6%8C%87%E9%92%88%E5%B8%B8%E9%87%8F%E5%92%8C%E5%B8%B8%E9%87%8F%E6%8C%87%E9%92%88%E7%9A%84%E5%8C%BA%E5%88%AB/">
+    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2019/12/31/deb%E5%8C%85%E7%9A%84%E4%BF%A1%E6%81%AF%E8%A7%82%E5%AF%9F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MichaelMa">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">指针常量和常量指针的区别</h1>
+          <h1 class="post-title" itemprop="name headline">deb包的信息观察</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-20T10:26:00+08:00">
-                2019-12-20
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-31T10:46:00+08:00">
+                2019-12-31
               </time>
             
 
@@ -310,16 +310,8 @@
       
 
       
-        <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a, b;</span><br><span class="line"><span class="keyword">int</span> * <span class="keyword">const</span> p1 = &amp;a; <span class="comment">// p1为指针常量</span></span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> * p2 = &amp;b; <span class="comment">// p2为常量指针</span></span><br></pre></td></tr></table></figure>
-
-<p>读法：指针(*)与常量(const)谁在前先读谁</p>
-<ol>
-<li>指针常量表示指针不能变，不能指向其他地址，但可以通过指针改变所指地址的值</li>
-<li>常量指针表示不能通过指针改变所指地址的值，但指针可以指向其他地址</li>
-<li>常量指针和指针常量都可以赋值给常量指针，常量指针可以进行p++操作，不能通过*p改变所指地址的值</li>
-<li>常量指针和指针常量都可以赋值给指针常量，指针常量可以进行*p改变所指地址的值，但不能进行p++操作</li>
-</ol>
-
+        <p>列出包中所有文件和目录信息。配合grep可以查看包中是否有要查询的信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -c deb包</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -336,7 +328,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/c-c/" rel="tag"># c/c++</a>
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
           
         </div>
       
@@ -349,8 +341,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/12/19/%E7%BB%99%E5%BF%BD%E7%95%A5%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E5%80%BC%E7%9A%84%E8%A1%8C%E4%B8%BA%E4%BA%88%E4%BB%A5%E8%AD%A6%E5%91%8A/" rel="next" title="给忽略函数返回值的行为予以警告">
-                <i class="fa fa-chevron-left"></i> 给忽略函数返回值的行为予以警告
+              <a href="/2019/12/31/python%E5%AE%89%E8%A3%85%E5%8C%853%E4%B8%AA%E9%87%8D%E8%A6%81%E5%91%BD%E4%BB%A4/" rel="next" title="python安装包3个重要命令">
+                <i class="fa fa-chevron-left"></i> python安装包3个重要命令
               </a>
             
           </div>
@@ -358,10 +350,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/12/20/python%E4%B9%8B%E6%89%93%E5%8D%B0/" rel="prev" title="python之打印">
-                python之打印 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
