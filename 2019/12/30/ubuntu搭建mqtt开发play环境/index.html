@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="MQTT," />
 
 
 
@@ -79,14 +79,17 @@
 
 
 
-<meta name="description" content="MichaelMa TechSite">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MichaelChao">
-<meta property="og:url" content="https:&#x2F;&#x2F;michaelchao.github.io&#x2F;page&#x2F;2&#x2F;index.html">
+<meta name="description" content="我们用mosquitto作为broker，然后用paho mqtt c来作为客户端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu搭建mqtt开发play环境">
+<meta property="og:url" content="https:&#x2F;&#x2F;michaelchao.github.io&#x2F;2019&#x2F;12&#x2F;30&#x2F;ubuntu%E6%90%AD%E5%BB%BAmqtt%E5%BC%80%E5%8F%91play%E7%8E%AF%E5%A2%83&#x2F;index.html">
 <meta property="og:site_name" content="MichaelChao">
-<meta property="og:description" content="MichaelMa TechSite">
+<meta property="og:description" content="我们用mosquitto作为broker，然后用paho mqtt c来作为客户端">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-12-30T09:01:00.000Z">
+<meta property="article:modified_time" content="2019-12-30T09:13:28.144Z">
 <meta property="article:author" content="MichaelMa">
+<meta property="article:tag" content="MQTT">
 <meta name="twitter:card" content="summary">
 
 
@@ -117,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://michaelchao.github.io/page/2/"/>
+  <link rel="canonical" href="https://michaelchao.github.io/2019/12/30/ubuntu搭建mqtt开发play环境/"/>
 
 
 
 
 
-  <title>MichaelChao</title>
+  <title>ubuntu搭建mqtt开发play环境 | MichaelChao</title>
   
 
 
@@ -142,8 +145,7 @@
     
   
 
-  <div class="container sidebar-position-right 
-  page-home">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -226,9 +228,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -241,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2019/12/16/%E6%9F%A5%E7%9C%8B%E4%B8%80%E4%B8%AA%E8%BF%9B%E7%A8%8B%E8%BF%90%E8%A1%8C%E6%97%B6%E6%9C%89%E5%87%A0%E4%B8%AA%E7%BA%BF%E7%A8%8B/">
+    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2019/12/30/ubuntu%E6%90%AD%E5%BB%BAmqtt%E5%BC%80%E5%8F%91play%E7%8E%AF%E5%A2%83/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MichaelMa">
@@ -258,9 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/12/16/%E6%9F%A5%E7%9C%8B%E4%B8%80%E4%B8%AA%E8%BF%9B%E7%A8%8B%E8%BF%90%E8%A1%8C%E6%97%B6%E6%9C%89%E5%87%A0%E4%B8%AA%E7%BA%BF%E7%A8%8B/" itemprop="url">查看一个进程运行时有几个线程</a></h1>
+          <h1 class="post-title" itemprop="name headline">ubuntu搭建mqtt开发play环境</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-16T20:30:52+08:00">
-                2019-12-16
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-30T17:01:00+08:00">
+                2019-12-30
               </time>
             
 
@@ -310,11 +310,39 @@
       
 
       
-        
-          
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">先用ps aux | grep myexpect 查看进程号</span><br><span class="line">top -H -p 进程号</span><br></pre></td></tr></table></figure>
-          
-        
+        <p>我们用mosquitto作为broker，然后用paho mqtt c来作为客户端</p>
+<a id="more"></a>
+<h4 id="部署mosquitto这个broker"><a href="#部署mosquitto这个broker" class="headerlink" title="部署mosquitto这个broker"></a>部署mosquitto这个broker</h4><ol>
+<li>cd /home/ts/michaelma/2020/mqtt/</li>
+<li>git clone <a href="mailto:git@github.com">git@github.com</a>:eclipse/mosquitto.git</li>
+<li>cd mosquitto</li>
+<li>mkdir build</li>
+<li>cd build</li>
+<li>cmake -DCMAKE_INSTALL_PREFIX=michaelma ..</li>
+<li>make</li>
+<li>make install</li>
+<li>cd michaelma/sbin</li>
+<li>export LD_LIBRARY_PATH=/home/ts/michaelma/2020/mqtt/mosquitto/build/michaelma/lib</li>
+<li>./mosquitto -c /home/ts/michaelma/2020/mqtt/mosquitto/build/michaelma/etc/mosquitto/mosquitto.conf</li>
+</ol>
+<h4 id="开始play客户端"><a href="#开始play客户端" class="headerlink" title="开始play客户端"></a>开始play客户端</h4><ol>
+<li>cd /home/ts/michaelma/2020/mqtt/</li>
+<li>git clone <a href="mailto:git@github.com">git@github.com</a>:eclipse/paho.mqtt.c.git</li>
+<li>cd paho.mqtt.c</li>
+<li>mkdir build</li>
+<li>cd build</li>
+<li>cmake -DCMAKE_INSTALL_PREFIX=michaelma -DPAHO_BUILD_SAMPLES=true -DPAHO_WITH_SSL=true ..</li>
+<li>make</li>
+<li>make install</li>
+<li>cd michaelma/bin</li>
+<li>export LD_LIBRARY_PATH=/home/ts/michaelma/2020/mqtt/paho.mqtt.c/build/michaelma/lib</li>
+<li>./paho_c_sub -t hello -h localhost</li>
+<li>再开一个终端，在里面执行./paho_c_pub -t hello -h localhost -m “wocao”</li>
+<li>paho_c_sub所在的终端会输出”wocao”</li>
+</ol>
+<p>至此，play环境已经搭建好了</p>
+<p>从上面的运行结果可以看出，只要满足mqtt协议，不同的broker和客户端都是能适配运行的。<br>这里使用的broker是mosquitto，其他的还有HiveMQ，不胜枚举</p>
+
       
     </div>
     
@@ -329,258 +357,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2019/12/16/%E6%9F%A5%E7%9C%8B%E9%9D%99%E6%80%81%E5%BA%93%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E5%93%AA%E4%BA%9Bo%E6%96%87%E4%BB%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MichaelMa">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MichaelChao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/12/16/%E6%9F%A5%E7%9C%8B%E9%9D%99%E6%80%81%E5%BA%93%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E5%93%AA%E4%BA%9Bo%E6%96%87%E4%BB%B6/" itemprop="url">查看静态库文件包含哪些o文件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-16T20:22:52+08:00">
-                2019-12-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/MQTT/" rel="tag"># MQTT</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ar t libtarget.a</span><br></pre></td></tr></table></figure>
-
-<p>为什么静态库被称为打包，其实使用ar t命令后，从输出就可以看出端倪。因为它的输出会列出所有的o文件，这不就是说静态库<br>仅仅是打包了所有的o文件吗</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2019/12/16/%E5%88%A0%E9%99%A4cmake%E5%B7%A5%E7%A8%8B%E4%B8%8B%E4%BD%BF%E7%94%A8make%20install%E5%AE%89%E8%A3%85%E7%9A%84%E6%96%87%E4%BB%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MichaelMa">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MichaelChao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/12/16/%E5%88%A0%E9%99%A4cmake%E5%B7%A5%E7%A8%8B%E4%B8%8B%E4%BD%BF%E7%94%A8make%20install%E5%AE%89%E8%A3%85%E7%9A%84%E6%96%87%E4%BB%B6/" itemprop="url">删除cmake工程下使用make install安装的文件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-16T20:18:52+08:00">
-                2019-12-16
-              </time>
+              <a href="/2019/12/20/python%E4%B9%8B%E6%89%93%E5%8D%B0/" rel="next" title="python之打印">
+                <i class="fa fa-chevron-left"></i> python之打印
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo xargs rm &lt; install_manifest.txt</span><br></pre></td></tr></table></figure>
-
-<p>缺点是不会删除目录</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -590,14 +396,11 @@
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/">Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -605,6 +408,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -625,8 +432,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -677,6 +493,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#部署mosquitto这个broker"><span class="nav-number">1.</span> <span class="nav-text">部署mosquitto这个broker</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开始play客户端"><span class="nav-number">2.</span> <span class="nav-text">开始play客户端</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -817,6 +649,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
