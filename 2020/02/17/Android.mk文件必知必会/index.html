@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Andriod," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="LOCAL_PATH :&#x3D; $(call my-dir)每个Android.mk文件都必须以LOCAL_PATH开始，Build System提供的宏函数my-dir，此变量返回包含的Android.mk的路径 CLEAR_VARS不会清楚LOCAL_PATH变量">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android.mk文件必知必会">
+<meta property="og:url" content="https:&#x2F;&#x2F;michaelchao.github.io&#x2F;2020&#x2F;02&#x2F;17&#x2F;Android.mk%E6%96%87%E4%BB%B6%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A&#x2F;index.html">
+<meta property="og:site_name" content="MichaelChao">
+<meta property="og:description" content="LOCAL_PATH :&#x3D; $(call my-dir)每个Android.mk文件都必须以LOCAL_PATH开始，Build System提供的宏函数my-dir，此变量返回包含的Android.mk的路径 CLEAR_VARS不会清楚LOCAL_PATH变量">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-17T10:47:00.000Z">
+<meta property="article:modified_time" content="2020-02-18T03:36:25.098Z">
+<meta property="article:author" content="MichaelMa">
+<meta property="article:tag" content="Andriod">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://michaelchao.github.io/2020/02/17/Android.mk文件必知必会/"/>
+
+
+
+
+
+  <title>Android.mk文件必知必会 | MichaelChao</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.1.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MichaelChao</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Lets Dance</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/02/17/Android.mk%E6%96%87%E4%BB%B6%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MichaelMa">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MichaelChao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android.mk文件必知必会</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-17T18:47:00+08:00">
+                2020-02-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="LOCAL-PATH-call-my-dir"><a href="#LOCAL-PATH-call-my-dir" class="headerlink" title="LOCAL_PATH := $(call my-dir)"></a>LOCAL_PATH := $(call my-dir)</h2><p>每个Android.mk文件都必须以LOCAL_PATH开始，Build System提供的宏函数my-dir，此变量返回包含的Android.mk的路径</p>
+<p>CLEAR_VARS不会清楚LOCAL_PATH变量</p>
+<a id="more"></a>
+<h2 id="include-CLEAR-VARS"><a href="#include-CLEAR-VARS" class="headerlink" title="include $(CLEAR_VARS)"></a>include $(CLEAR_VARS)</h2><p>CLEAR_VARS变量由Build System提供，并指向一个特定的GNU Makefile，可为你清除LOCAL_xxx变量，但不会清除LOCAL_PATH变量</p>
+<p>因系统在单一GNU Make执行环境中解析所有构建控制文件，LOCAL_xxx变量是全局的，所以描述每个模块之前，声明此变量，可以清除所有了LOCAL_xxx，这样清理后避免相互影响</p>
+<h2 id="LOCAL-MODULE"><a href="#LOCAL-MODULE" class="headerlink" title="LOCAL_MODULE"></a>LOCAL_MODULE</h2><p>此变量声明模块名称，名称必须唯一且不含任何空格</p>
+<p>Build System在生成最终共享库文件时，会将”lib”作为前缀+模块名称+”.so”作为共享库文件名称</p>
+<p>eg：LOCAL_MODULE := ffmpeg-decoder</p>
+<p>模块名称为ffmpeg-decoder生成共享库为libffmpeg-decoder.so</p>
+<h2 id="LOCAL-SRC-FILES"><a href="#LOCAL-SRC-FILES" class="headerlink" title="LOCAL_SRC_FILES"></a>LOCAL_SRC_FILES</h2><p>此变量必须包含要构建到模块中的C/C++源文件列表，不需要列出头文件和包含文件，系统会自动导入依赖</p>
+<p>eg: LOCAL_SRC_FILES := FFmpegDecoder.cpp FFmpegConfigure.cpp</p>
+<h2 id="LOCAL-C-INCLUDES"><a href="#LOCAL-C-INCLUDES" class="headerlink" title="LOCAL_C_INCLUDES"></a>LOCAL_C_INCLUDES</h2><p>变量设置头文件的include目录列表</p>
+<p>eg: LOCAL_C_INCLUDES += $(LOCAL_PATH)/include</p>
+<h2 id="LOCAL-LDLIBS"><a href="#LOCAL-LDLIBS" class="headerlink" title="LOCAL_LDLIBS"></a>LOCAL_LDLIBS</h2><p>此变量包含构建共享库或可执行文件时链接库，使用-l前缀传递特定系统库的名称，多个链接库之间使用空格作为分隔符</p>
+<h2 id="include-BUILD-SHARED-LIBRARY"><a href="#include-BUILD-SHARED-LIBRARY" class="headerlink" title="include $(BUILD_SHARED_LIBRARY)"></a>include $(BUILD_SHARED_LIBRARY)</h2><p>收集自从上次调用 include $(CLEAR_VARS)  后的所有LOCAL_XXX信息，并决定编译为什么</p>
+<p>在包含此文件前，至少应该包含：LOCAL_MODULE and LOCAL_SRC_FILES</p>
+<p>可选的编译目标有</p>
+<ol>
+<li>BUILD_STATIC_LIBRARY：编译为静态库</li>
+<li>BUILD_SHARED_LIBRARY ：编译为动态库</li>
+<li>BUILD_EXECUTABLE：编译为Native C可执行程序</li>
+</ol>
+<h2 id="NDK-Build-System变量"><a href="#NDK-Build-System变量" class="headerlink" title="NDK Build System变量"></a>NDK Build System变量</h2><p>NDK Build System 保留以下变量名：</p>
+<ol>
+<li>以LOCAL_  为开头的</li>
+<li>以PRIVATE_ ,NDK_ 或者APP_ 开头的名字</li>
+<li>小写字母名字：如my-dir</li>
+</ol>
+<p>如果想要定义自己在Android.mk中使用的变量名，建议添加 MY＿　前缀</p>
+<h2 id="NDK提供的功能宏"><a href="#NDK提供的功能宏" class="headerlink" title="NDK提供的功能宏"></a>NDK提供的功能宏</h2><h3 id="my-dir"><a href="#my-dir" class="headerlink" title="my-dir"></a>my-dir</h3><p>返回最近一次include的Makefile的路径。通常返回Android.mk所在的路径。它用来作为Android.mk的开头来定义LOCAL_PATH</p>
+<h3 id="all-subdir-makefiles"><a href="#all-subdir-makefiles" class="headerlink" title="all-subdir-makefiles"></a>all-subdir-makefiles</h3><p>返回一个列表，包含’my-dir’中所有子目录中的Android.mk</p>
+<h3 id="this-makefile"><a href="#this-makefile" class="headerlink" title="this-makefile"></a>this-makefile</h3><p>当前Makefile的路径</p>
+<h3 id="parent-makefile"><a href="#parent-makefile" class="headerlink" title="parent-makefile"></a>parent-makefile</h3><p>返回include tree中父Makefile 路径。 也就是include 当前Makefile的Makefile Path</p>
+<h3 id="import-module"><a href="#import-module" class="headerlink" title="import-module"></a>import-module</h3><p>允许寻找并import其它modules到本Android.mk中来。 它会从NDK_MODULE_PATH寻找指定的模块名</p>
+<h2 id="模块描述变量"><a href="#模块描述变量" class="headerlink" title="模块描述变量"></a>模块描述变量</h2><h3 id="LOCAL-PATH"><a href="#LOCAL-PATH" class="headerlink" title="LOCAL_PATH"></a>LOCAL_PATH</h3><p>这个值用来给定当前目录。必须在Android.mk的开是位置定义之</p>
+<h3 id="LOCAL-MODULE-1"><a href="#LOCAL-MODULE-1" class="headerlink" title="LOCAL_MODULE"></a>LOCAL_MODULE</h3><p>modules名。在include $(BUILD_XXXXX)之前，必须定义这个变量。此变量必须唯一且不能有空格</p>
+<p>通常，由此变量名决定最终生成的目标文件名</p>
+<h3 id="LOCAL-MODULE-FILENAME"><a href="#LOCAL-MODULE-FILENAME" class="headerlink" title="LOCAL_MODULE_FILENAME"></a>LOCAL_MODULE_FILENAME</h3><p>可选。用来override LOCAL_MODULE. 即允许用户重新定义最终生成的目标文件名</p>
+<p>LOCAL_MODULE := foo-version-1  LOCAL_MODULE_FILENAME := libfoo</p>
+<h3 id="LOCAL-SRC-FILES-1"><a href="#LOCAL-SRC-FILES-1" class="headerlink" title="LOCAL_SRC_FILES"></a>LOCAL_SRC_FILES</h3><p>为Build Modules而提供的Source 文件列表。不需要列出依赖文件。 注意：文件相对于LOCAL_PATH存放，且可以提供相对路径，例如：</p>
+<p>LOCAL_SRC_FILES := foo.c toto/bar.c</p>
+<h3 id="LOCAL-CPP-EXTENSION"><a href="#LOCAL-CPP-EXTENSION" class="headerlink" title="LOCAL_CPP_EXTENSION"></a>LOCAL_CPP_EXTENSION</h3><p>指出C++ 扩展名</p>
+<p>LOCAL_CPP_EXTENSION := .cxx 从NDK R7后，可以写多个：</p>
+<p>LOCAL_CPP_EXTENSION := .cxx .cpp .cc</p>
+<h3 id="LOCAL-CPP-FEATURES"><a href="#LOCAL-CPP-FEATURES" class="headerlink" title="LOCAL_CPP_FEATURES"></a>LOCAL_CPP_FEATURES</h3><p>可选。用来指定C++ features</p>
+<p>LOCAL_CPP_FEATURES := rtti</p>
+<p>LOCAL_CPP_FEATURES := exceptions</p>
+<h3 id="LOCAL-C-INCLUDES-1"><a href="#LOCAL-C-INCLUDES-1" class="headerlink" title="LOCAL_C_INCLUDES"></a>LOCAL_C_INCLUDES</h3><p>一个可选的path列表。相对于NDK ROOT 目录。编译时，将会把这些目录附上</p>
+<p>LOCAL_C_INCLUDES := sources/foo</p>
+<p>LOCAL_C_INCLUDES := $(LOCAL_PATH)/../foo</p>
+<h3 id="LOCAL-CFLAGS"><a href="#LOCAL-CFLAGS" class="headerlink" title="LOCAL_CFLAGS"></a>LOCAL_CFLAGS</h3><p>一个可选的设置，在编译C/C++ source 时添加如Flags</p>
+<p>用来附加编译选项。 注意：不要尝试在此处修改编译的优化选项和Debug等级。它会通过您Application.mk中的信息自动指定</p>
+<p>也可以指定include 目录通过：LOCAL_CFLAGS += -I路径。 这个方法比使用LOCAL_C_INCLUDES要好。因为这样也可以被ndk-debug使用</p>
+<h3 id="LOCAL-CXXFLAGS"><a href="#LOCAL-CXXFLAGS" class="headerlink" title="LOCAL_CXXFLAGS"></a>LOCAL_CXXFLAGS</h3><p>LOCAL_CPPFLAGS的别名</p>
+<h3 id="LOCAL-CPPFLAGS"><a href="#LOCAL-CPPFLAGS" class="headerlink" title="LOCAL_CPPFLAGS"></a>LOCAL_CPPFLAGS</h3><p>C++ Source 编译时添加的C Flags。这些Flags将出现在LOCAL_CFLAGS flags 的后面</p>
+<h3 id="LOCAL-STATIC-LIBRARIES"><a href="#LOCAL-STATIC-LIBRARIES" class="headerlink" title="LOCAL_STATIC_LIBRARIES"></a>LOCAL_STATIC_LIBRARIES</h3><p>要链接到本模块的静态库list。(built with BUILD_STATIC_LIBRARY)</p>
+<h3 id="LOCAL-SHARED-LIBRARIES"><a href="#LOCAL-SHARED-LIBRARIES" class="headerlink" title="LOCAL_SHARED_LIBRARIES"></a>LOCAL_SHARED_LIBRARIES</h3><p>要链接到本模块的动态库</p>
+<h3 id="LOCAL-WHOLE-STATIC-LIBRARIES"><a href="#LOCAL-WHOLE-STATIC-LIBRARIES" class="headerlink" title="LOCAL_WHOLE_STATIC_LIBRARIES"></a>LOCAL_WHOLE_STATIC_LIBRARIES</h3><p>静态库全链接。 不同于LOCAL_STATIC_LIBRARIES，类似于使用–whole-archive</p>
+<h3 id="LOCAL-LDLIBS-1"><a href="#LOCAL-LDLIBS-1" class="headerlink" title="LOCAL_LDLIBS"></a>LOCAL_LDLIBS</h3><p>linker flags。 可以用它来添加系统库。 如：</p>
+<p>LOCAL_LDLIBS := -lz</p>
+<h3 id="LOCAL-MULTILIB"><a href="#LOCAL-MULTILIB" class="headerlink" title="LOCAL_MULTILIB"></a>LOCAL_MULTILIB</h3><ol>
+<li>“both”: 构建32位和64位程序</li>
+<li>“32”: 仅构建32位程序</li>
+<li>“64”: 仅构建64位程序</li>
+<li>“first”: 系统是啥位数的，就构建啥位数的程序</li>
+</ol>
+<h2 id="输出消息"><a href="#输出消息" class="headerlink" title="输出消息"></a>输出消息</h2><h3 id="输出信息并停止构建"><a href="#输出信息并停止构建" class="headerlink" title="输出信息并停止构建"></a>输出信息并停止构建</h3><p>$(error this is the error message that will stop the build process)</p>
+<h3 id="仅输出消息"><a href="#仅输出消息" class="headerlink" title="仅输出消息"></a>仅输出消息</h3><p>$(info this the info msg)</p>
+<h3 id="输出消息并显示当前行数"><a href="#输出消息并显示当前行数" class="headerlink" title="输出消息并显示当前行数"></a>输出消息并显示当前行数</h3><p>$(warning this the warning msg)</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Andriod/" rel="tag"># Andriod</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/14/%E8%AE%BE%E8%AE%A1%E4%B9%8B%E4%B8%80%E4%B8%AAmap%E5%AE%B9%E5%99%A8%E5%92%8C%E5%8F%A6%E4%B8%80%E4%B8%AAmap%E5%AE%B9%E5%99%A8%E6%9C%89%E5%85%B3%E8%81%94/" rel="next" title="设计之一个map容器和另一个map容器有关联">
+                <i class="fa fa-chevron-left"></i> 设计之一个map容器和另一个map容器有关联
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/02/27/python%E5%86%99%E6%97%A5%E5%BF%97/" rel="prev" title="python写日志">
+                python写日志 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">MichaelMa</p>
+              <p class="site-description motion-element" itemprop="description">MichaelMa TechSite</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#LOCAL-PATH-call-my-dir"><span class="nav-number">1.</span> <span class="nav-text">LOCAL_PATH :&#x3D; $(call my-dir)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#include-CLEAR-VARS"><span class="nav-number">2.</span> <span class="nav-text">include $(CLEAR_VARS)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LOCAL-MODULE"><span class="nav-number">3.</span> <span class="nav-text">LOCAL_MODULE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LOCAL-SRC-FILES"><span class="nav-number">4.</span> <span class="nav-text">LOCAL_SRC_FILES</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LOCAL-C-INCLUDES"><span class="nav-number">5.</span> <span class="nav-text">LOCAL_C_INCLUDES</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LOCAL-LDLIBS"><span class="nav-number">6.</span> <span class="nav-text">LOCAL_LDLIBS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#include-BUILD-SHARED-LIBRARY"><span class="nav-number">7.</span> <span class="nav-text">include $(BUILD_SHARED_LIBRARY)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NDK-Build-System变量"><span class="nav-number">8.</span> <span class="nav-text">NDK Build System变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NDK提供的功能宏"><span class="nav-number">9.</span> <span class="nav-text">NDK提供的功能宏</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#my-dir"><span class="nav-number">9.1.</span> <span class="nav-text">my-dir</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#all-subdir-makefiles"><span class="nav-number">9.2.</span> <span class="nav-text">all-subdir-makefiles</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#this-makefile"><span class="nav-number">9.3.</span> <span class="nav-text">this-makefile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#parent-makefile"><span class="nav-number">9.4.</span> <span class="nav-text">parent-makefile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#import-module"><span class="nav-number">9.5.</span> <span class="nav-text">import-module</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块描述变量"><span class="nav-number">10.</span> <span class="nav-text">模块描述变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LOCAL-PATH"><span class="nav-number">10.1.</span> <span class="nav-text">LOCAL_PATH</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LOCAL-MODULE-1"><span class="nav-number">10.2.</span> <span class="nav-text">LOCAL_MODULE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LOCAL-MODULE-FILENAME"><span class="nav-number">10.3.</span> <span class="nav-text">LOCAL_MODULE_FILENAME</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LOCAL-SRC-FILES-1"><span class="nav-number">10.4.</span> <span class="nav-text">LOCAL_SRC_FILES</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LOCAL-CPP-EXTENSION"><span class="nav-number">10.5.</span> <span class="nav-text">LOCAL_CPP_EXTENSION</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LOCAL-CPP-FEATURES"><span class="nav-number">10.6.</span> <span class="nav-text">LOCAL_CPP_FEATURES</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LOCAL-C-INCLUDES-1"><span class="nav-number">10.7.</span> <span class="nav-text">LOCAL_C_INCLUDES</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LOCAL-CFLAGS"><span class="nav-number">10.8.</span> <span class="nav-text">LOCAL_CFLAGS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LOCAL-CXXFLAGS"><span class="nav-number">10.9.</span> <span class="nav-text">LOCAL_CXXFLAGS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LOCAL-CPPFLAGS"><span class="nav-number">10.10.</span> <span class="nav-text">LOCAL_CPPFLAGS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LOCAL-STATIC-LIBRARIES"><span class="nav-number">10.11.</span> <span class="nav-text">LOCAL_STATIC_LIBRARIES</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LOCAL-SHARED-LIBRARIES"><span class="nav-number">10.12.</span> <span class="nav-text">LOCAL_SHARED_LIBRARIES</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LOCAL-WHOLE-STATIC-LIBRARIES"><span class="nav-number">10.13.</span> <span class="nav-text">LOCAL_WHOLE_STATIC_LIBRARIES</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LOCAL-LDLIBS-1"><span class="nav-number">10.14.</span> <span class="nav-text">LOCAL_LDLIBS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LOCAL-MULTILIB"><span class="nav-number">10.15.</span> <span class="nav-text">LOCAL_MULTILIB</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输出消息"><span class="nav-number">11.</span> <span class="nav-text">输出消息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输出信息并停止构建"><span class="nav-number">11.1.</span> <span class="nav-text">输出信息并停止构建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#仅输出消息"><span class="nav-number">11.2.</span> <span class="nav-text">仅输出消息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出消息并显示当前行数"><span class="nav-number">11.3.</span> <span class="nav-text">输出消息并显示当前行数</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MichaelMa</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
