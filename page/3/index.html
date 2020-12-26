@@ -241,7 +241,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2019/12/19/%E5%9C%A8%E7%BA%BF%E6%B5%8B%E8%AF%95C++/">
+    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/08/10/Linux%E7%BB%88%E7%AB%AF%E4%BB%BB%E5%8A%A1%E7%AE%A1%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MichaelMa">
@@ -260,7 +260,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/12/19/%E5%9C%A8%E7%BA%BF%E6%B5%8B%E8%AF%95C++/" itemprop="url">在线测试C++</a></h1>
+                <a class="post-title-link" href="/2020/08/10/Linux%E7%BB%88%E7%AB%AF%E4%BB%BB%E5%8A%A1%E7%AE%A1%E7%90%86/" itemprop="url">Linux终端任务管理</a></h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-19T18:09:00+08:00">
-                2019-12-19
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-10T14:37:00+08:00">
+                2020-08-10
               </time>
             
 
@@ -312,12 +312,13 @@
       
         
           
-            <p><a href="https://wandbox.org/" target="_blank" rel="noopener">https://wandbox.org/</a></p>
-<p>允许你在不同版本的gcc和clang下编译和观察程序输出</p>
-<p><a href="https://godbolt.org/" target="_blank" rel="noopener">https://godbolt.org/</a></p>
-<p>允许你在不同版本的平台下观察程序的汇编输出</p>
-<p><a href="http://quick-bench.com/" target="_blank" rel="noopener">http://quick-bench.com/</a></p>
-<p>允许你在不同版本的gcc和clang下进行benchmark</p>
+            <ul>
+<li>&amp; =&gt; 后台Running</li>
+<li>jobs -l =&gt; 查看后台任务</li>
+<li>fg %[N] =&gt; 把N号后台任务放到前台运行，当前终端将被这个任务占住</li>
+<li>Ctrl + Z =&gt; 把当前占用终端的任务放到后台，并处于Stopped</li>
+<li>bg %[N] =&gt; 把后台Stopped的N号任务变为Running</li>
+</ul>
 
           
         
@@ -366,7 +367,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2019/12/18/%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%91/">
+    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/07/17/%E6%9F%A5%E7%9C%8B%E4%B8%80%E4%B8%AA%E4%B8%8D%E7%9F%A5%E6%BA%90%E7%A8%8B%E5%BA%8F%E7%9A%84coredump%E6%96%87%E4%BB%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MichaelMa">
@@ -385,7 +386,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/12/18/%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%91/" itemprop="url">输出重定向</a></h1>
+                <a class="post-title-link" href="/2020/07/17/%E6%9F%A5%E7%9C%8B%E4%B8%80%E4%B8%AA%E4%B8%8D%E7%9F%A5%E6%BA%90%E7%A8%8B%E5%BA%8F%E7%9A%84coredump%E6%96%87%E4%BB%B6/" itemprop="url">查看一个不知源程序的coredump文件</a></h1>
         
 
         <div class="post-meta">
@@ -397,8 +398,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-18T21:02:02+08:00">
-                2019-12-18
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-17T18:00:00+08:00">
+                2020-07-17
               </time>
             
 
@@ -436,16 +437,9 @@
 
       
         
-          <p>假设两个文件 test.sh存在和test1.sh不存在</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls test.sh test1.sh 1&gt;svc.txt</span><br></pre></td></tr></table></figure>
-<p>把正确输出重定向到文件svc.txt</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/12/18/%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%91/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eu-readelf --all &lt;coredump.file&gt;</span><br></pre></td></tr></table></figure>
+          
         
       
     </div>
@@ -492,7 +486,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2019/12/18/cp%E5%91%BD%E4%BB%A4%E7%9A%84--preserve=links/">
+    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/07/13/Linux%E5%8E%86%E5%8F%B2%E4%B8%8A%E7%BA%BF%E7%A8%8B%E7%9A%843%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%A8%A1%E5%9E%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MichaelMa">
@@ -511,7 +505,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/12/18/cp%E5%91%BD%E4%BB%A4%E7%9A%84--preserve=links/" itemprop="url">cp命令的--preserve=links</a></h1>
+                <a class="post-title-link" href="/2020/07/13/Linux%E5%8E%86%E5%8F%B2%E4%B8%8A%E7%BA%BF%E7%A8%8B%E7%9A%843%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%A8%A1%E5%9E%8B/" itemprop="url">Linux历史上线程的3种实现模型(转)</a></h1>
         
 
         <div class="post-meta">
@@ -523,132 +517,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-18T14:52:00+08:00">
-                2019-12-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>–preserve=links选项不是指符号链接，而是指硬链接。它要求cp保留正在复制的两个或多个文件之间的任何现有硬链接。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/12/18/cp%E5%91%BD%E4%BB%A4%E7%9A%84--preserve=links/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2019/12/18/cp%E5%91%BD%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MichaelMa">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MichaelChao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/12/18/cp%E5%91%BD%E4%BB%A4/" itemprop="url">cp命令</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-18T14:42:00+08:00">
-                2019-12-18
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-13T19:35:00+08:00">
+                2020-07-13
               </time>
             
 
@@ -687,7 +557,17 @@
       
         
           
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">touch michaelma.txt</span><br><span class="line">ln -s michaelma.txt michaelma2.txt</span><br><span class="line">mkdir test</span><br><span class="line">cp -R --no-dereference --preserve&#x3D;mode,links michaelma* test</span><br></pre></td></tr></table></figure>
+            <h2 id="一-概述"><a href="#一-概述" class="headerlink" title="一 概述"></a>一 概述</h2><p>这里以Linux为例。<br>Linux历史上，最开始使用的线程是LinuxThreads，但LinuxThreads有些方面受限于内核的特性，从而违背了SUSV3 Pthreads标准。<br>即它要根据内核的特性来实现线程，有些地方没有遵循统一的标准。<br>后来IBM开发了NGPT(Next Generation POSIX Threads)，性能明显优于LinuxThreads，人们曾把它当作LinuxThreads的继任者。<br>但最后，又有一个项目NPTL(Native POSIX Threads Library)出来后，性能更优于NGPT。<br>2002年NGPT项目停止开发，我们现在用的Linux线程就是NPTL。</p>
+<p>线程的实现曾有3种模型：</p>
+<ol>
+<li>多对一(M:1)的用户级线程模型</li>
+<li>一对一(1:1)的内核级线程模型</li>
+<li>多对多(M:N)的两级线程模型</li>
+</ol>
+<p>上面的x对y(x:y)即x个用户线程对应y个内核调度实体(Kernel Scheduling Entity，这个是内核分配CPU的对象单位)。<br>LinuxThreads和NPTL都是采用一对一的线程模型，NGPT采用的是多对多的线程模型。</p>
+<h2 id="二-多对一用户线级程模型"><a href="#二-多对一用户线级程模型" class="headerlink" title="二 多对一用户线级程模型"></a>二 多对一用户线级程模型</h2><p>多对一线程模型中，线程的创建、调度、同步的所有细节全部由进程的用户空间线程库来处理。<br>用户态线程的很多操作对内核来说都是透明的，因为不需要内核来接管，这意味不需要内核态和用户态频繁切换。<br>线程的创建、调度、同步处理速度非常快。当然线程的一些其他操作还是要经过内核，如IO读写。<br>这样导致了一个问题：当多线程并发执行时，如果其中一个线程执行IO操作时，内核接管这个操作，如果IO阻塞，用户态的其他线程都会被阻塞，因为这些线程都对应同一个内核调度实体。<br>在多处理器机器上，内核不知道用户态有这些线程，无法把它们调度到其他处理器，也无法通过优先级来调度。这对线程的使用是没有意义的。</p>
+<h2 id="三-一对一内核极线程模型"><a href="#三-一对一内核极线程模型" class="headerlink" title="三 一对一内核极线程模型"></a>三 一对一内核极线程模型</h2><p>一对一模型中，每个用户线程都对应各自的内核调度实体。<br>内核会对每个线程进行调度，可以调度到其他处理器上面。<br>当然由内核来调度的结果就是：线程的每次操作会在用户态和内核态切换。<br>另外，内核为每个线程都映射调度实体，如果系统出现大量线程，会对系统性能有影响。但该模型的实用性还是高于多对一的线程模型。</p>
+<h2 id="四-多对多两极线程模型"><a href="#四-多对多两极线程模型" class="headerlink" title="四 多对多两极线程模型"></a>四 多对多两极线程模型</h2><p>多对多模型中，结合了1：1和M：1的优点，避免了它们的缺点。<br>每个线程可以拥有多个调度实体，也可以多个线程对应一个调度实体。<br>听起来好像非常完美，但线程的调度需要由内核态和用户态一起来实现。<br>可想而知，多个对象操作一个东西时，肯定要一些其他的同步机制。<br>用户态和内核态的分工合作导致实现该模型非常复杂。<br>NPTL曾经也想使用该模型，但它太复杂，要对内核进行大范围改动，所以还是采用了一对一的模型。</p>
 
           
         
@@ -736,7 +616,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2019/12/17/export%E5%92%8C%E4%B8%8Dexport%E5%AF%B9%E5%8F%98%E9%87%8F%E7%9A%84%E5%BD%B1%E5%93%8D/">
+    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/06/20/Ubuntu18.04%E4%B8%8B%E5%AE%89%E8%A3%85runc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MichaelMa">
@@ -755,7 +635,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/12/17/export%E5%92%8C%E4%B8%8Dexport%E5%AF%B9%E5%8F%98%E9%87%8F%E7%9A%84%E5%BD%B1%E5%93%8D/" itemprop="url">export和不export对变量的影响</a></h1>
+                <a class="post-title-link" href="/2020/06/20/Ubuntu18.04%E4%B8%8B%E5%AE%89%E8%A3%85runc/" itemprop="url">Ubuntu18.04下安装runc</a></h1>
         
 
         <div class="post-meta">
@@ -767,256 +647,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-17T20:05:00+08:00">
-                2019-12-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="awk调用system输出没有经过export的变量"><a href="#awk调用system输出没有经过export的变量" class="headerlink" title="awk调用system输出没有经过export的变量"></a>awk调用system输出没有经过export的变量</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu:~<span class="meta"># abc=12345567890</span></span><br><span class="line">root@ubuntu:~# awk 'BEGIN&#123;system("echo $abc")&#125;'</span><br><span class="line"></span><br><span class="line">root@ubuntu:~#</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/12/17/export%E5%92%8C%E4%B8%8Dexport%E5%AF%B9%E5%8F%98%E9%87%8F%E7%9A%84%E5%BD%B1%E5%93%8D/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2019/12/17/%E8%A7%A3%E5%8E%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MichaelMa">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MichaelChao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/12/17/%E8%A7%A3%E5%8E%8B/" itemprop="url">解压</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-17T16:00:00+08:00">
-                2019-12-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="解压tar-gz包（到指定目录，前提是目录必须存在）"><a href="#解压tar-gz包（到指定目录，前提是目录必须存在）" class="headerlink" title="解压tar.gz包（到指定目录，前提是目录必须存在）"></a>解压tar.gz包（到指定目录，前提是目录必须存在）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf A.tar.gz -C dir</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/12/17/%E8%A7%A3%E5%8E%8B/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2019/12/16/%E6%9F%A5%E7%9C%8B%E4%B8%80%E4%B8%AA%E8%BF%9B%E7%A8%8B%E8%BF%90%E8%A1%8C%E6%97%B6%E6%9C%89%E5%87%A0%E4%B8%AA%E7%BA%BF%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MichaelMa">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MichaelChao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/12/16/%E6%9F%A5%E7%9C%8B%E4%B8%80%E4%B8%AA%E8%BF%9B%E7%A8%8B%E8%BF%90%E8%A1%8C%E6%97%B6%E6%9C%89%E5%87%A0%E4%B8%AA%E7%BA%BF%E7%A8%8B/" itemprop="url">查看一个进程运行时有几个线程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-16T20:30:52+08:00">
-                2019-12-16
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-20T21:12:00+08:00">
+                2020-06-20
               </time>
             
 
@@ -1055,128 +687,49 @@
       
         
           
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">先用ps aux | grep myexpect 查看进程号</span><br><span class="line">top -H -p 进程号</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2019/12/16/%E6%9F%A5%E7%9C%8B%E9%9D%99%E6%80%81%E5%BA%93%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E5%93%AA%E4%BA%9Bo%E6%96%87%E4%BB%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MichaelMa">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MichaelChao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/12/16/%E6%9F%A5%E7%9C%8B%E9%9D%99%E6%80%81%E5%BA%93%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E5%93%AA%E4%BA%9Bo%E6%96%87%E4%BB%B6/" itemprop="url">查看静态库文件包含哪些o文件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-16T20:22:52+08:00">
-                2019-12-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ar t libtarget.a</span><br></pre></td></tr></table></figure>
-
-<p>为什么静态库被称为打包，其实使用ar t命令后，从输出就可以看出端倪。因为它的输出会列出所有的o文件，这不就是说静态库<br>仅仅是打包了所有的o文件吗</p>
+            <p>本文介绍如何编译go源码，然后用生成的go程序编译runc</p>
+<h1 id="go1-4之后的版本需要用go程序去编译，那这个go程序就称之为bootstrap"><a href="#go1-4之后的版本需要用go程序去编译，那这个go程序就称之为bootstrap" class="headerlink" title="go1.4之后的版本需要用go程序去编译，那这个go程序就称之为bootstrap"></a>go1.4之后的版本需要用go程序去编译，那这个go程序就称之为bootstrap</h1><ol>
+<li>go1.4解压到/home/ts/go1.4下(此目录下有api  AUTHORS  bin等文件和目录)</li>
+<li>cd src(上面一群目录中有个src)</li>
+<li>GOOS=linux GOARCH=amd64 CGO_ENABLED=0 ./make.bash</li>
+<li>~/.profile末尾添加export PATH=”$PATH:/home/ts/go1.4/bin”</li>
+<li>退出当前终端</li>
+</ol>
+<h1 id="用上面生成好的bootstrap去编译可以用来编译runc的go版本-本文使用go1-6"><a href="#用上面生成好的bootstrap去编译可以用来编译runc的go版本-本文使用go1-6" class="headerlink" title="用上面生成好的bootstrap去编译可以用来编译runc的go版本(本文使用go1.6)"></a>用上面生成好的bootstrap去编译可以用来编译runc的go版本(本文使用go1.6)</h1><ol>
+<li>重新登录终端</li>
+<li>source ~/.profile</li>
+<li>go1.6解压到/home/ts/go_src/go_1_6/go下(此目录下有api  AUTHORS  bin等文件和目录)</li>
+<li>cd src(上面一群目录中有个src)</li>
+<li>./ make.bash</li>
+<li>~/.profile末尾删除export PATH=”$PATH:/home/ts/go1.4/bin”</li>
+<li>~/.profile末尾添加export PATH=”$PATH:/home/ts/go_src/go_1_6/go/bin”</li>
+<li>退出当前终端</li>
+</ol>
+<h1 id="用go1-6去编译runc"><a href="#用go1-6去编译runc" class="headerlink" title="用go1.6去编译runc"></a>用go1.6去编译runc</h1><ol>
+<li>重新登录终端</li>
+<li>source ~/.profile</li>
+<li>cd 至目录/home/ts/go</li>
+<li>export GOPATH=/home/ts/go</li>
+<li>mkdir -p src/github.com/opencontainers</li>
+<li>cd src/github.com/opencontainers</li>
+<li>git clone <a href="https://github.com/opencontainers/runc" target="_blank" rel="noopener">https://github.com/opencontainers/runc</a></li>
+<li>git checkout v1.0.0-rc5</li>
+<li>make</li>
+<li>runc可执行程序在当前目录生成</li>
+</ol>
+<h1 id="运行镜像"><a href="#运行镜像" class="headerlink" title="运行镜像"></a>运行镜像</h1><ol>
+<li>从<a href="https://download.openvz.org/template/precreated/网址下载一个镜像" target="_blank" rel="noopener">https://download.openvz.org/template/precreated/网址下载一个镜像</a></li>
+<li>创建目录/tmp/mycontainer</li>
+<li>将镜像解压到目录/tmp/mycontainer并命名为rootfs（这个目录下有一般的linux系统目录）</li>
+<li>运行sudo runc spec创建config.json文件</li>
+<li>修改此文件中的”terminal”: true为”terminal”: false</li>
+<li>修改此文件中的”args”:[“sh”]为”args”:[“sleep”， “3000”]</li>
+<li>sudo runc create mybusybox 创建容器</li>
+<li>sudo runc create list 查看当前运行信息</li>
+<li>sudo runc create state mybusybox查看容器状态</li>
+<li>sudo runc create start mybusybox开始运行容器</li>
+<li>sudo runc exec mybusybox ls在容器中执行命令ls</li>
+</ol>
 
           
         
@@ -1225,7 +778,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2019/12/16/%E5%88%A0%E9%99%A4cmake%E5%B7%A5%E7%A8%8B%E4%B8%8B%E4%BD%BF%E7%94%A8make%20install%E5%AE%89%E8%A3%85%E7%9A%84%E6%96%87%E4%BB%B6/">
+    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/06/18/git%E4%B9%8B%E6%9C%89%E7%94%A8%E7%9A%84%E9%85%8D%E7%BD%AE%E7%9A%84%E5%91%BD%E4%BB%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MichaelMa">
@@ -1244,7 +797,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/12/16/%E5%88%A0%E9%99%A4cmake%E5%B7%A5%E7%A8%8B%E4%B8%8B%E4%BD%BF%E7%94%A8make%20install%E5%AE%89%E8%A3%85%E7%9A%84%E6%96%87%E4%BB%B6/" itemprop="url">删除cmake工程下使用make install安装的文件</a></h1>
+                <a class="post-title-link" href="/2020/06/18/git%E4%B9%8B%E6%9C%89%E7%94%A8%E7%9A%84%E9%85%8D%E7%BD%AE%E7%9A%84%E5%91%BD%E4%BB%A4/" itemprop="url">git之有用的配置的命令</a></h1>
         
 
         <div class="post-meta">
@@ -1256,8 +809,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-16T20:18:52+08:00">
-                2019-12-16
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-18T14:02:00+08:00">
+                2020-06-18
               </time>
             
 
@@ -1296,10 +849,629 @@
       
         
           
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo xargs rm &lt; install_manifest.txt</span><br></pre></td></tr></table></figure>
+            <p>查看当前配置命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config -l</span><br></pre></td></tr></table></figure>
 
-<p>缺点是不会删除目录</p>
+<p>httpBuffer加大</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.postBuffer 524288000</span><br></pre></td></tr></table></figure>
 
+<p>压缩配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.compression -1</span><br></pre></td></tr></table></figure>
+
+<p>添加命令执行时的有用信息输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export GIT_TRACE_PACKET&#x3D;1</span><br><span class="line"></span><br><span class="line">export GIT_TRACE&#x3D;1</span><br><span class="line"></span><br><span class="line">export GIT_CURL_VERBOSE&#x3D;1</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/06/16/gcc%E4%BF%A1%E6%81%AFdump/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MichaelMa">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MichaelChao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/06/16/gcc%E4%BF%A1%E6%81%AFdump/" itemprop="url">gcc信息dump</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-16T21:05:00+08:00">
+                2020-06-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc --help -v</span><br><span class="line">g++ --help -v</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/06/14/%E4%B8%80%E4%B8%AA%E7%BB%8F%E5%85%B8%E7%9A%84shell%E4%BA%A4%E4%BA%92%E8%84%9A%E6%9C%AC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MichaelMa">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MichaelChao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/06/14/%E4%B8%80%E4%B8%AA%E7%BB%8F%E5%85%B8%E7%9A%84shell%E4%BA%A4%E4%BA%92%E8%84%9A%E6%9C%AC/" itemprop="url">一个经典的shell交互脚本</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-14T10:38:00+08:00">
+                2020-06-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 读取用户输入到变量user中</span></span><br><span class="line">read -p "User: " user</span><br><span class="line">echo "Expect entered the username $user"</span><br><span class="line"><span class="meta">#</span><span class="bash"> 读取用户输入到变量pass中</span></span><br><span class="line">read -p "Password: " pass</span><br><span class="line">echo "User entered the password $pass"</span><br><span class="line">while :</span><br><span class="line">do</span><br><span class="line">        # 读取用户输入到变量command中</span><br><span class="line">        read -p "Shell&gt; " command</span><br><span class="line">        # 指定用户输入的命令</span><br><span class="line">        $command</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/06/13/linux%E4%B8%8Bipk%E5%AE%89%E8%A3%85%E5%8C%85%E6%96%87%E4%BB%B6%E7%9A%84%E8%A7%A3%E5%8E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MichaelMa">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MichaelChao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/06/13/linux%E4%B8%8Bipk%E5%AE%89%E8%A3%85%E5%8C%85%E6%96%87%E4%BB%B6%E7%9A%84%E8%A7%A3%E5%8E%8B/" itemprop="url">linux下ipk安装包文件的解压</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-13T15:39:00+08:00">
+                2020-06-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>假设ipk文件为example.ipk</p>
+<p>执行以下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ar x example.ipk</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf control.tar.gz</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/06/08/systemd%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MichaelMa">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MichaelChao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/06/08/systemd%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C/" itemprop="url">systemd的一些操作</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-08T21:39:00+08:00">
+                2020-06-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop &lt;service name&gt; 关闭服务</span><br><span class="line">systemctl start &lt;service name&gt; 启动服务</span><br><span class="line">systemctl daemon-reload 修改了某个服务的service文件后，运行此命令</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/05/16/Markdown%E6%B7%BB%E5%8A%A0%E9%94%9A%E7%82%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MichaelMa">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MichaelChao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/16/Markdown%E6%B7%BB%E5%8A%A0%E9%94%9A%E7%82%B9/" itemprop="url">Markdown添加锚点</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-16T10:34:00+08:00">
+                2020-05-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>某些场景下，需要在Markdown文档A中添加跳转到Markdown文档B中某个具体的位置，这样的一个跳转点称为<strong><em>锚点</em></strong></p>
+<p>Markdown文件A和B位于同级目录下</p>
+<ul>
+<li>Markdown文件A内容</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">目标标题中所有大写字母都用小写字母替代</span><br><span class="line"></span><br><span class="line">Press me to [jump] (./B.md#level1)</span><br><span class="line"></span><br><span class="line">目标标题中若有空格，用中横线替代</span><br><span class="line"></span><br><span class="line">Press me to [jump] (./B.md#level-2)</span><br><span class="line"></span><br><span class="line">目标标题可以任意指定</span><br><span class="line"></span><br><span class="line">Press me to [jump] (./B.md#level3)</span><br><span class="line"></span><br><span class="line">目标标题中若已经有中横线，保留</span><br><span class="line"></span><br><span class="line">Press me to [jump] (./B.md#level-4)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Markdown文件B内容</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># Level0</span></span><br><span class="line"></span><br><span class="line"><span class="section"># Level1</span></span><br><span class="line"></span><br><span class="line"><span class="section"># Level 2</span></span><br><span class="line"></span><br><span class="line"><span class="section">## Level3</span></span><br><span class="line"></span><br><span class="line"><span class="section"># Level-4</span></span><br></pre></td></tr></table></figure>
           
         
       
@@ -1338,7 +1510,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/">Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/">Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/">Next</a>
   </nav>
 
 
@@ -1384,7 +1556,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">76</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1397,7 +1569,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Security," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="公钥加密，私钥解密使用公钥加密后，只有私钥可以解密。而私钥只在一个人手中，所以其他人解不了密，就达到了信息保密的效果 私钥加密，公钥解密私钥加密后，虽然信息是密文的，一般人看不到，但是公钥却可以存在与多个人手中，所以信息是不能保证安全的。不过由于私钥只有一个人能拥有，所以私钥加密的作用就是告知他人这份信息是由我加密的，是从属于我的，这就达到了数字签名的效果">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TLS之阅后理解">
+<meta property="og:url" content="https:&#x2F;&#x2F;michaelchao.github.io&#x2F;2020&#x2F;03&#x2F;16&#x2F;TLS%E4%B9%8B%E9%98%85%E5%90%8E%E7%90%86%E8%A7%A3&#x2F;index.html">
+<meta property="og:site_name" content="MichaelChao">
+<meta property="og:description" content="公钥加密，私钥解密使用公钥加密后，只有私钥可以解密。而私钥只在一个人手中，所以其他人解不了密，就达到了信息保密的效果 私钥加密，公钥解密私钥加密后，虽然信息是密文的，一般人看不到，但是公钥却可以存在与多个人手中，所以信息是不能保证安全的。不过由于私钥只有一个人能拥有，所以私钥加密的作用就是告知他人这份信息是由我加密的，是从属于我的，这就达到了数字签名的效果">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-16T08:21:00.000Z">
+<meta property="article:modified_time" content="2020-03-16T08:23:36.900Z">
+<meta property="article:author" content="MichaelMa">
+<meta property="article:tag" content="Security">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://michaelchao.github.io/2020/03/16/TLS之阅后理解/"/>
+
+
+
+
+
+  <title>TLS之阅后理解 | MichaelChao</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.1.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MichaelChao</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Lets Dance</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/03/16/TLS%E4%B9%8B%E9%98%85%E5%90%8E%E7%90%86%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MichaelMa">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MichaelChao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">TLS之阅后理解</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-16T16:21:00+08:00">
+                2020-03-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="公钥加密，私钥解密"><a href="#公钥加密，私钥解密" class="headerlink" title="公钥加密，私钥解密"></a>公钥加密，私钥解密</h1><p>使用公钥加密后，只有私钥可以解密。而私钥只在一个人手中，所以其他人解不了密，就达到了信息保密的效果</p>
+<h1 id="私钥加密，公钥解密"><a href="#私钥加密，公钥解密" class="headerlink" title="私钥加密，公钥解密"></a>私钥加密，公钥解密</h1><p>私钥加密后，虽然信息是密文的，一般人看不到，但是公钥却可以存在与多个人手中，所以信息是不能保证安全的。<br>不过由于私钥只有一个人能拥有，所以私钥加密的作用就是告知他人这份信息是由我加密的，是从属于我的，这就达到了数字签名的效果</p>
+<a id="more"></a>
+<h1 id="数字签名双方如何实施"><a href="#数字签名双方如何实施" class="headerlink" title="数字签名双方如何实施"></a>数字签名双方如何实施</h1><h2 id="签名方"><a href="#签名方" class="headerlink" title="签名方"></a>签名方</h2><p>使用信息摘要算法对要发送的信息进行信息摘要操作，得到一份摘要<br>使用私钥对这份摘要进行加密，生成数字指纹<br>将信息和加密后的摘要一同发出去</p>
+<h2 id="收信方"><a href="#收信方" class="headerlink" title="收信方"></a>收信方</h2><p>使用公钥解密收到的数字指纹<br>如果能解出摘要信息，则首先说明这份信息的确是签名方发送的<br>然后，使用信息摘要算法对收到的信息进行信息摘要操作，也得到一份摘要<br>把这个这要信息和刚才解密得到的信息摘要信息做对比，如果一样的话，就证明信息没有被篡改</p>
+<h1 id="TLS协议握手流程"><a href="#TLS协议握手流程" class="headerlink" title="TLS协议握手流程"></a>TLS协议握手流程</h1><h2 id="先简单概括一下："><a href="#先简单概括一下：" class="headerlink" title="先简单概括一下："></a>先简单概括一下：</h2><p>客户端明文发送client random，服务端明文发送server random，客户端密文(非对称加密)发送premaster secret。双方根据约定的秘钥交换算法，使用三个随机数计算出用于对称加密的密钥</p>
+<h2 id="更为详细的过程"><a href="#更为详细的过程" class="headerlink" title="更为详细的过程"></a>更为详细的过程</h2><ol>
+<li>客户端与服务端之间建立TCP连接</li>
+<li>客户端向服务端发送”client hello”消息，里面包含了安全相关的信息，例如 SSL/TLS 版本号，客户端支持的加密套件(CipherSuite)。”client hello” 消息还包含了一个随机数client random，用于通信密钥的计算。SSL/TLS协议还允许 “client hello”消息包含客户端所支持的压缩算法(可选项)</li>
+<li>服务端回复一条”server hello”消息，里面包含了加密套件(服务端从”client hello”消息的CipherSuites列表中选择其中一个)，session id和另一个随机数server random。服务端还会在消息中附带自己的数字证书。(可选)如果服务端需要客户端的数字证书进行客户端认证，会向客户端发送”client certificate request”请求消息，里面包含了服务端所支持的证书类型和认可的证书颁发机构CA。常见场景如银行提供的USB证书。</li>
+<li>客户端收到”server hello”之后，验证服务端的数字证书，并得到证书中服务端的公钥</li>
+<li>客户端向服务端发送第三个随机数premaster secret。与之前不同，这次的随机数使用了服务端的公钥加密(非对称加密)。现在双方同时拥有这三个随机数client random，server random，premaster secret，可以用来计算生成共同的通信密钥master secret了。这个密钥是不在网络上传输的，是客户端和服务端各自依据三个随机数并结合密钥交换算法算出来的。它用于加密后面传输的业务数据。</li>
+<li>客户端如果收到服务端发来的”client certificate request”请求消息，客户端会向服务端发送一个使用客户端自己的私钥加密过的随机数(暂时记作secret-A)，并附带上客户端的数字证书。或者发送一个 “no digital certificate alert” 无证书警告，这种情况下基本可以认为 SSL/TLS握手失败。</li>
+<li>服务端验证客户端发送过来的数字证书，并得到证书中公钥对客户端进行身份认证(通过公钥解密上面那个secret-A，走数字签名收信方流程)。</li>
+<li>客户端向服务端发送ChangeCipherSpec。ChangeCipherSpec是一个独立的协议，体现在数据包中就是一个字节的数据，用于告知服务端，客户端已经切换到之前协商好的加密套件(CipherSuite)的状态，准备使用之前协商好的加密套件加密数据并传输了。</li>
+<li>客户端向服务端发送”finished”消息，使用之前协商好的加密套件和密钥加密一段Finish的数据传送给服务端，此数据是为了在正式传输应用数据之前对刚刚握手建立起来的加解密通道进行验证(使用第5步中计算出来的密钥进行对称加密传输)，这表示客户端握手阶段已经完成。</li>
+<li>服务端向客户端发送ChangeCipherSpec，告知客户端已经切换到协商过的加密套件状态。</li>
+<li>服务端也会使用密钥加密一段Finish消息发送给客户端，以验证之前通过握手建立起来的加解密通道是否成功</li>
+<li>SSL/TLS握手阶段完成，接下来双方通信的消息都会使用协商出来的密钥进行加密(对称加密)</li>
+</ol>
+<h1 id="加密套件命名"><a href="#加密套件命名" class="headerlink" title="加密套件命名"></a>加密套件命名</h1><p>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</p>
+<ol>
+<li>TLS 协议</li>
+<li>ECDHE 密钥交换协议。客户端和服务端使用密钥交换协议生成密钥，这个密钥将会配合对称加密算法，来对传输的业务数据进行对称加密。有了这个密钥交换协议，客户端和服务端就不需要在网络上传输密钥，而仅仅是各自生成了。</li>
+<li>ECDSA 身份认证算法</li>
+<li>AES_128_GCM 对称加密算法 用于协商出供密钥交换协议使用的premaster secret</li>
+<li>SHA256 验证信息的完整性</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Security/" rel="tag"># Security</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/11/%E8%AE%BE%E8%AE%A1%E4%B9%8B%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8B%E5%85%B1%E4%BA%AB%E8%B5%84%E6%BA%90%E7%9A%84%E5%90%8E%E7%BB%AD%E6%93%8D%E4%BD%9C/" rel="next" title="设计之多线程下共享资源的后续操作">
+                <i class="fa fa-chevron-left"></i> 设计之多线程下共享资源的后续操作
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/16/git%E4%B9%8B%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/" rel="prev" title="git之版本回退">
+                git之版本回退 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">MichaelMa</p>
+              <p class="site-description motion-element" itemprop="description">MichaelMa TechSite</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">76</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#公钥加密，私钥解密"><span class="nav-number">1.</span> <span class="nav-text">公钥加密，私钥解密</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#私钥加密，公钥解密"><span class="nav-number">2.</span> <span class="nav-text">私钥加密，公钥解密</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数字签名双方如何实施"><span class="nav-number">3.</span> <span class="nav-text">数字签名双方如何实施</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#签名方"><span class="nav-number">3.1.</span> <span class="nav-text">签名方</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#收信方"><span class="nav-number">3.2.</span> <span class="nav-text">收信方</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TLS协议握手流程"><span class="nav-number">4.</span> <span class="nav-text">TLS协议握手流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#先简单概括一下："><span class="nav-number">4.1.</span> <span class="nav-text">先简单概括一下：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更为详细的过程"><span class="nav-number">4.2.</span> <span class="nav-text">更为详细的过程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#加密套件命名"><span class="nav-number">5.</span> <span class="nav-text">加密套件命名</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MichaelMa</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

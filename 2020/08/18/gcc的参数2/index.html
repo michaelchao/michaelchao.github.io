@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="gcc," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="-Werror&#x3D;uinitialized1234567891011int test()&amp;#123;    int a;    return a;&amp;#125;int main()&amp;#123;    test();    return 0;&amp;#125;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gcc的参数2">
+<meta property="og:url" content="https:&#x2F;&#x2F;michaelchao.github.io&#x2F;2020&#x2F;08&#x2F;18&#x2F;gcc%E7%9A%84%E5%8F%82%E6%95%B02&#x2F;index.html">
+<meta property="og:site_name" content="MichaelChao">
+<meta property="og:description" content="-Werror&#x3D;uinitialized1234567891011int test()&amp;#123;    int a;    return a;&amp;#125;int main()&amp;#123;    test();    return 0;&amp;#125;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-18T07:14:00.000Z">
+<meta property="article:modified_time" content="2020-08-19T05:28:10.364Z">
+<meta property="article:author" content="MichaelMa">
+<meta property="article:tag" content="gcc">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://michaelchao.github.io/2020/08/18/gcc的参数2/"/>
+
+
+
+
+
+  <title>gcc的参数2 | MichaelChao</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.1.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MichaelChao</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Lets Dance</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/08/18/gcc%E7%9A%84%E5%8F%82%E6%95%B02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MichaelMa">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MichaelChao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">gcc的参数2</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-18T15:14:00+08:00">
+                2020-08-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Werror-uinitialized"><a href="#Werror-uinitialized" class="headerlink" title="-Werror=uinitialized"></a>-Werror=uinitialized</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">test</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    test();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc test.c -Werror=uninitialized -o myexpect</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">test.c: In <span class="keyword">function</span> ‘<span class="built_in">test</span>’:</span><br><span class="line">test.c:6:2: error: ‘a’ is used uninitialized <span class="keyword">in</span> this <span class="keyword">function</span> [-Werror=uninitialized]</span><br><span class="line">  <span class="built_in">return</span> a;</span><br><span class="line">  ^</span><br></pre></td></tr></table></figure>
+
+<h3 id="Werror-parentheses"><a href="#Werror-parentheses" class="headerlink" title="-Werror=parentheses"></a>-Werror=parentheses</h3><p>该有圆括号的地方缺没有，报错</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test_01</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> b = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span> c = <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">int</span> d = <span class="number">4</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (a == b)</span><br><span class="line">        <span class="keyword">if</span> ( c ==d )</span><br><span class="line">            d = <span class="number">7</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        d = <span class="number">6</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test_02</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> b = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span> c = <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">int</span> d = <span class="number">4</span>;</span><br><span class="line">    <span class="keyword">int</span> e = <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">int</span> f = <span class="number">6</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ( a == b || c == d &amp;&amp; e == f)</span><br><span class="line">        f = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test_03</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">if</span> (a &amp; <span class="number">0x2</span> == <span class="number">0x4</span>)</span><br><span class="line">        a = <span class="number">6</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc test.c -Werror=parentheses -o myexpect</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">test.c: In <span class="keyword">function</span> ‘test_01’:</span><br><span class="line">test.c:10:5: error: suggest explicit braces to avoid ambiguous ‘<span class="keyword">else</span>’ [-Werror=parentheses]</span><br><span class="line">  <span class="keyword">if</span> (a == b)</span><br><span class="line">     ^</span><br><span class="line">test.c: In <span class="keyword">function</span> ‘test_02’:</span><br><span class="line">test.c:26:24: error: suggest parentheses around ‘&amp;&amp;’ within ‘||’ [-Werror=parentheses]</span><br><span class="line">  <span class="keyword">if</span> ( a == b || c == d &amp;&amp; e == f)</span><br><span class="line">                        ^</span><br><span class="line">test.c: In <span class="keyword">function</span> ‘test_03’:</span><br><span class="line">test.c:33:2: error: suggest parentheses around comparison <span class="keyword">in</span> operand of ‘&amp;’ [-Werror=parentheses]</span><br><span class="line">  <span class="keyword">if</span> (a &amp; 0x2 == 0x4)</span><br><span class="line">  ^</span><br></pre></td></tr></table></figure>
+
+<h3 id="Wfloat-equal"><a href="#Wfloat-equal" class="headerlink" title="-Wfloat-equal"></a>-Wfloat-equal</h3><p>浮点数直接比较，报错</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">float</span> a = <span class="number">1.</span>;</span><br><span class="line">    <span class="keyword">float</span> b = <span class="number">1.</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (a == b) &#123;</span><br><span class="line">        a = <span class="number">2.</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc test.c -Werror=<span class="built_in">float</span>-equal -o myexpect</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">test.c: In <span class="keyword">function</span> ‘main’:</span><br><span class="line">test.c:8:8: error: comparing floating point with == or != is unsafe [-Werror=<span class="built_in">float</span>-equal]</span><br><span class="line">  <span class="keyword">if</span> (a == b) &#123;</span><br><span class="line">        ^</span><br></pre></td></tr></table></figure>
+
+<h3 id="Wstrict-prototypes"><a href="#Wstrict-prototypes" class="headerlink" title="-Wstrict-prototypes"></a>-Wstrict-prototypes</h3><p>这个选项不要在构建C++时使用</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 无参时却没有写void，这在C99 / C11中是完全合法的，但是-Wstrict-prototypes在C中对此声明发出警告</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">test_01</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">5</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">test_02</span><span class="params">(x, y)</span></span></span><br><span class="line"><span class="function">    <span class="keyword">int</span> x</span>;</span><br><span class="line">    <span class="keyword">char</span> * y;</span><br><span class="line">&#123;</span><br><span class="line">    eturn x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 报出KR C的风错警告和函数无参却没有void时的警告，但是后者在C++中却是正常现象，所以不适用于C++</span><br><span class="line">gcc test.c -Wstrict-prototypes -o myexpect</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">test.c:3:5: warning: <span class="keyword">function</span> declaration isn’t a prototype [-Wstrict-prototypes]</span><br><span class="line"> int test_01()</span><br><span class="line">     ^</span><br><span class="line">test.c:8:5: warning: <span class="keyword">function</span> declaration isn’t a prototype [-Wstrict-prototypes]</span><br><span class="line"> int test_02(x, y)</span><br><span class="line">     ^</span><br><span class="line">test.c:15:5: warning: <span class="keyword">function</span> declaration isn’t a prototype [-Wstrict-prototypes]</span><br><span class="line"> int main()</span><br><span class="line">     ^</span><br></pre></td></tr></table></figure>
+
+<h3 id="Werror-sign-compare"><a href="#Werror-sign-compare" class="headerlink" title="-Werror=sign-compare"></a>-Werror=sign-compare</h3><p>有符号数和无符号数进行比较，报错</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; vec.<span class="built_in">size</span>(); ++i) &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g++ --std=c++11 test_cpp.cpp -Werror=sign-compare -o myexpect</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">test_cpp.cpp: In <span class="keyword">function</span> ‘int main()’:</span><br><span class="line">test_cpp.cpp:7:31: error: comparison between signed and unsigned <span class="built_in">integer</span> expressions [-Werror=sign-compare]</span><br><span class="line">  <span class="keyword">for</span> (int i = 0; i &lt; vec.size(); ++i) &#123;</span><br><span class="line">                               ^</span><br></pre></td></tr></table></figure>
+
+<h3 id="Wimplicit-function-declaration"><a href="#Wimplicit-function-declaration" class="headerlink" title="-Wimplicit-function-declaration"></a>-Wimplicit-function-declaration</h3><p>a.c</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"comdef.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_a</span><span class="params">()</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>comdef.h</p>
+<p>内容为空</p>
+<p>test_implict.c</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"comdef.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    print_a();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc test_implict.c a.c comdef.h -Wimplicit-function-declaration -o myexpect</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">test_implict.c: In <span class="keyword">function</span> ‘main’:</span><br><span class="line">test_implict.c:9:2: warning: implicit declaration of <span class="keyword">function</span> ‘print_a’ [-Wimplicit-function-declaration]</span><br><span class="line">  print_a();</span><br><span class="line">  ^</span><br></pre></td></tr></table></figure>
+
+<h3 id="Werror-switch"><a href="#Werror-switch" class="headerlink" title="-Werror=switch"></a>-Werror=switch</h3><p>这个选项很像rust，强烈推荐</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> TYPE</span><br><span class="line">&#123;</span><br><span class="line">    eTypeValue1 = <span class="number">0</span>,</span><br><span class="line">    eTypeValue2 = <span class="number">1</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">enum</span> TYPE myType1 = eTypeValue2;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">switch</span> (myType1) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">0</span>: &#123;<span class="keyword">break</span>;&#125;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>: &#123;<span class="keyword">break</span>;&#125;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">2</span>: &#123;<span class="keyword">break</span>;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">enum</span> TYPE myType2 = eTypeValue2;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">switch</span> (myType2) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">0</span>: &#123;<span class="keyword">break</span>;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">enum</span> TYPE myType3 = eTypeValue2;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">switch</span> (myType3) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">0</span>: &#123;<span class="keyword">break</span>;&#125;</span><br><span class="line">            <span class="keyword">default</span>: &#123;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g++ test_cpp.cpp -Werror=switch -o myexpect</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">test_cpp.cpp: In <span class="keyword">function</span> ‘int main()’:</span><br><span class="line">test_cpp.cpp:18:4: error: <span class="keyword">case</span> value ‘2’ not <span class="keyword">in</span> enumerated <span class="built_in">type</span> ‘TYPE’ [-Werror=switch]</span><br><span class="line">    <span class="keyword">case</span> 2: &#123;<span class="built_in">break</span>;&#125;</span><br><span class="line">    ^</span><br><span class="line">test_cpp.cpp:24:10: error: enumeration value ‘eTypeValue2’ not handled <span class="keyword">in</span> switch [-Werror=switch]</span><br><span class="line">   switch (myType2) &#123;</span><br><span class="line">          ^</span><br></pre></td></tr></table></figure>
+
+<h3 id="Wunused-function"><a href="#Wunused-function" class="headerlink" title="-Wunused-function"></a>-Wunused-function</h3><p>针对静态函数，声明却没有定义，报警告</p>
+<p>针对非静态函数，虽有声明和定义，却没有使用，报警告</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test_01</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test_02</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test_01</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test_02</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g++ test_cpp.cpp -Wunused-function -o myexpect</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">test_cpp.cpp:14:6: warning: ‘void test_01(int, int)’ declared ‘static’ but never defined [-Wunused-function]</span><br><span class="line"> void test_01(int a, int b);</span><br><span class="line">      ^</span><br><span class="line">test_cpp.cpp:15:6: warning: ‘void test_02(int, int)’ defined but not used [-Wunused-function]</span><br><span class="line"> void test_02(int a, int b) &#123;</span><br><span class="line">      ^</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/gcc/" rel="tag"># gcc</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/08/17/gcc%E5%8F%82%E6%95%B0%E4%B9%8Bvisibility=hidden/" rel="next" title="gcc参数之visibility=hidden">
+                <i class="fa fa-chevron-left"></i> gcc参数之visibility=hidden
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/08/19/gcc%E7%9A%84%E6%89%80%E6%9C%89warning%E9%80%89%E9%A1%B9/" rel="prev" title="gcc的所有warning选项">
+                gcc的所有warning选项 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">MichaelMa</p>
+              <p class="site-description motion-element" itemprop="description">MichaelMa TechSite</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">76</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Werror-uinitialized"><span class="nav-number">1.</span> <span class="nav-text">-Werror&#x3D;uinitialized</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Werror-parentheses"><span class="nav-number">2.</span> <span class="nav-text">-Werror&#x3D;parentheses</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Wfloat-equal"><span class="nav-number">3.</span> <span class="nav-text">-Wfloat-equal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Wstrict-prototypes"><span class="nav-number">4.</span> <span class="nav-text">-Wstrict-prototypes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Werror-sign-compare"><span class="nav-number">5.</span> <span class="nav-text">-Werror&#x3D;sign-compare</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Wimplicit-function-declaration"><span class="nav-number">6.</span> <span class="nav-text">-Wimplicit-function-declaration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Werror-switch"><span class="nav-number">7.</span> <span class="nav-text">-Werror&#x3D;switch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Wunused-function"><span class="nav-number">8.</span> <span class="nav-text">-Wunused-function</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MichaelMa</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -241,7 +241,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/03/03/%E5%BC%80%E6%BA%90license%E4%BB%8B%E7%BB%8D/">
+    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/08/21/Android%E8%B0%83%E8%AF%95%E5%91%BD%E4%BB%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MichaelMa">
@@ -260,7 +260,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/03/03/%E5%BC%80%E6%BA%90license%E4%BB%8B%E7%BB%8D/" itemprop="url">开源license介绍(转)</a></h1>
+                <a class="post-title-link" href="/2020/08/21/Android%E8%B0%83%E8%AF%95%E5%91%BD%E4%BB%A4/" itemprop="url">Android调试命令</a></h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-03T18:30:00+08:00">
-                2020-03-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-21T19:37:00+08:00">
+                2020-08-21
               </time>
             
 
@@ -312,9 +312,8 @@
       
         
           
-            <h2 id="GPL"><a href="#GPL" class="headerlink" title="GPL"></a>GPL</h2><p>GPL软件的使用者有权力得到软件的代码，只要使用了GPL，在发布(redistribution)的时候，整个项目也必须是GPL的，即主程序和静态链接的库（Linux的.a和Windows的.lib）必须是GPL的，动态链接库(Linux的.so，Windows的.dll)必须是GPL兼容的。所谓GPL兼容，也就是GPL软件中可以使用的库，这些许可证必须比GPL弱(如LGPL，BSD)，而不能是某个商业许可证。</p>
-<h2 id="LGPL"><a href="#LGPL" class="headerlink" title="LGPL"></a>LGPL</h2><p>在以LGPL发布的库的基础上开发新的库的时候，新的库必须以LGPL发布，但是如果仅仅是动态链接，那么则不受任何限制。这样商业软件就可以随意的使用LGPL的库了。因此，LGPL也具有传染性，但限制在在其基础上开发的库上，而并不限制使用它的程序本身——它的传染性远小于GPL。</p>
-<h2 id="关于Android"><a href="#关于Android" class="headerlink" title="关于Android"></a>关于Android</h2><p>Android 使用宽松的Apache 2.0发布，因为Google作为一个商业公司，并不想失去商业软件的支持，它希望团结一切可以团结的力量加入的Android的开发中来，壮大自己的阵营，使用Apache 2.0就无可厚非了。<br>而Google本身，并没有丧失对Android的控制权，不会担心另外一个公司拿走了Android的代码开发出一个闭源 Android的对手。<br>因为，只要Android不断的出新版，社区不停的跟进，并且不停的修改API，其他基于Android开发的公司不得不把自己的 Patch提回到主干上，否则必然将耗费大量人力物力在维护自己的Patch上(心得：钱和技术这两方面你斗得过Google？)，得不偿失。<br>而且，闭源之后，与整个社区为敌，作为一个定位软件平台的项目，会流失大量应用软件开发者（心得：API都不一样，你怎么勾引普通开发者）。<br>以小博大，任何一个商业公司都不会干这种胜算不高的蠢事。（心得：Google唯一方式就是快速的进化Android，别人拿不走主导权就不得不跟随，其次还可以打败iOS，第三还可以解决碎片化问题，否则大家都停留在2.3怎么行，如果慢了就会被别人抢走。所以目前Google不用太担心版权问题，将来怎么样再说。反正IT发展这么快，死抱着金娃娃也没有，不出5年就会过时。）</p>
+            <h3 id="查看内存信息"><a href="#查看内存信息" class="headerlink" title="查看内存信息"></a>查看内存信息</h3><p>adb shell dumpsys meminfo</p>
+<h3 id="查看android的连接跟踪"><a href="#查看android的连接跟踪" class="headerlink" title="查看android的连接跟踪"></a>查看android的连接跟踪</h3><p>cat /proc/net/net_conntrack</p>
 
           
         
@@ -363,7 +362,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/02/27/python%E5%86%99%E6%97%A5%E5%BF%97/">
+    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/08/20/gcc%E7%9A%84%E5%8F%8D%E6%B1%87%E7%BC%962%E8%BF%9B%E5%88%B6%E7%A8%8B%E5%BA%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MichaelMa">
@@ -382,7 +381,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/02/27/python%E5%86%99%E6%97%A5%E5%BF%97/" itemprop="url">python写日志</a></h1>
+                <a class="post-title-link" href="/2020/08/20/gcc%E7%9A%84%E5%8F%8D%E6%B1%87%E7%BC%962%E8%BF%9B%E5%88%B6%E7%A8%8B%E5%BA%8F/" itemprop="url">gcc的反汇编2进制程序</a></h1>
         
 
         <div class="post-meta">
@@ -394,8 +393,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-27T16:31:00+08:00">
-                2020-02-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-20T11:11:00+08:00">
+                2020-08-20
               </time>
             
 
@@ -434,7 +433,29 @@
       
         
           
-            <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line">logger = logging.getLogger(__name__)</span><br><span class="line">logger.setLevel(logging.DEBUG)</span><br><span class="line"></span><br><span class="line">ch = logging.StreamHandler()</span><br><span class="line">ch.setLevel(logging.DEBUG)</span><br><span class="line"></span><br><span class="line">fh = logging.FileHandler(<span class="string">'access.log'</span>)</span><br><span class="line">fh.setLevel(logging.WARNING)</span><br><span class="line"></span><br><span class="line">formatter = logging.Formatter(<span class="string">'%(asctime)s-%(name)s-%(levelname)s-%(message)s'</span>)</span><br><span class="line"></span><br><span class="line">ch.setFormatter(formatter)</span><br><span class="line">fh.setFormatter(formatter)</span><br><span class="line"></span><br><span class="line">logger.addHandler(ch)</span><br><span class="line">logger.addHandler(fh)</span><br><span class="line"></span><br><span class="line">logger.debug(<span class="string">'This is my name'</span>)</span><br></pre></td></tr></table></figure>
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int a &#x3D; 1;</span><br><span class="line">    int b &#x3D; 2;</span><br><span class="line">    int c &#x3D; a + b;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>携带调试信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -g main.c -o myexpect</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">objdump -d -S myexpect</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">  4004ad:	55                   	push   %rbp</span><br><span class="line">  4004ae:	48 89 e5             	mov    %rsp,%rbp</span><br><span class="line">	int a &#x3D; 1;</span><br><span class="line">  4004b1:	c7 45 f4 01 00 00 00 	movl   $0x1,-0xc(%rbp)</span><br><span class="line">	int b &#x3D; 2;</span><br><span class="line">  4004b8:	c7 45 f8 02 00 00 00 	movl   $0x2,-0x8(%rbp)</span><br><span class="line">	int c &#x3D; a + b;</span><br><span class="line">  4004bf:	8b 45 f8             	mov    -0x8(%rbp),%eax</span><br><span class="line">  4004c2:	8b 55 f4             	mov    -0xc(%rbp),%edx</span><br><span class="line">  4004c5:	01 d0                	add    %edx,%eax</span><br><span class="line">  4004c7:	89 45 fc             	mov    %eax,-0x4(%rbp)</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">  4004ca:	b8 00 00 00 00       	mov    $0x0,%eax</span><br><span class="line">&#125;</span><br><span class="line">  4004cf:	5d                   	pop    %rbp</span><br><span class="line">  4004d0:	c3                   	retq</span><br><span class="line">  4004d1:	66 2e 0f 1f 84 00 00 	nopw   %cs:0x0(%rax,%rax,1)</span><br><span class="line">  4004d8:	00 00 00</span><br><span class="line">  4004db:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li><strong>.text</strong>：已编译程序的机器代码。</li>
+<li><strong>.rodata</strong>：只读数据，比如printf语句中的格式串和开关（switch）语句的跳转表。</li>
+<li><strong>.data</strong>：已初始化的全局C变量。局部C变量在运行时被保存在栈中，既不出现在.data中，也不出现在.bss节中。</li>
+<li><strong>.bss</strong>：未初始化的全局C变量。在目标文件中这个节不占据实际的空间，它仅仅是一个占位符。目标文件格式区分初始化和未初始化变量是为了空间效率在：在目标文件中，未初始化变量不需要占据任何实际的磁盘空间。</li>
+<li><strong>.symtab</strong>：一个符号表（symbol table），它存放在程序中被定义和引用的函数和全局变量的信息。一些程序员错误地认为必须通过-g选项来编译一个程序，得到符号表信息。实际上，每个可重定位目标文件在.symtab中都有一张符号表。然而，和编译器中的符号表不同，.symtab符号表不包含局部变量的表目。</li>
+<li><strong>.rel.text</strong>：当链接噐把这个目标文件和其他文件结合时，.text节中的许多位置都需要修改。一般而言，任何调用外部函数或者引用全局变量的指令都需要修改。另一方面调用本地函数的指令则不需要修改。注意，可执行目标文件中并不需要重定位信息，因此通常省略，除非使用者显式地指示链接器包含这些信息。</li>
+<li><strong>.rel.data</strong>：被模块定义或引用的任何全局变量的信息。一般而言，任何已初始化全局变量的初始值是全局变量或者外部定义函数的地址都需要被修改。</li>
+<li><strong>.debug</strong>：一个调试符号表，其有些表目是程序中定义的局部变量和类型定义，有些表目是程序中定义和引用的全局变量，有些是原始的C源文件。只有以-g选项调用编译驱动程序时，才会得到这张表。</li>
+<li><strong>.line</strong>：原始C源程序中的行号和.text节中机器指令之间的映射。只有以-g选项调用编译驱动程序时，才会得到这张表。</li>
+<li><strong>.strtab</strong>：一个字符串表，其内容包括.symtab和.debug节中的符号表，以及节头部中的节名字。字符串表就是以null结尾的字符串序列。</li>
+</ul>
+
           
         
       
@@ -482,7 +503,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/02/17/Android.mk%E6%96%87%E4%BB%B6%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/">
+    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/08/19/gcc%E6%9B%B4%E6%94%B9elf%E5%AF%B9%E8%B1%A1%E6%96%87%E4%BB%B6%E7%AC%A6%E5%8F%B7%E5%90%8D%E5%AD%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MichaelMa">
@@ -501,7 +522,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/02/17/Android.mk%E6%96%87%E4%BB%B6%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" itemprop="url">Android.mk文件必知必会</a></h1>
+                <a class="post-title-link" href="/2020/08/19/gcc%E6%9B%B4%E6%94%B9elf%E5%AF%B9%E8%B1%A1%E6%96%87%E4%BB%B6%E7%AC%A6%E5%8F%B7%E5%90%8D%E5%AD%97/" itemprop="url">gcc更改elf对象文件符号名字</a></h1>
         
 
         <div class="post-meta">
@@ -513,8 +534,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-17T18:47:00+08:00">
-                2020-02-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-19T19:54:00+08:00">
+                2020-08-19
               </time>
             
 
@@ -552,11 +573,10 @@
 
       
         
-          <h2 id="LOCAL-PATH-call-my-dir"><a href="#LOCAL-PATH-call-my-dir" class="headerlink" title="LOCAL_PATH := $(call my-dir)"></a>LOCAL_PATH := $(call my-dir)</h2><p>每个Android.mk文件都必须以LOCAL_PATH开始，Build System提供的宏函数my-dir，此变量返回包含的Android.mk的路径</p>
-<p>CLEAR_VARS不会清楚LOCAL_PATH变量</p>
+          <p>使用objcopy来更好elf对象文件中的符号的名字</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2020/02/17/Android.mk%E6%96%87%E4%BB%B6%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/#more" rel="contents">
+            <a class="btn" href="/2020/08/19/gcc%E6%9B%B4%E6%94%B9elf%E5%AF%B9%E8%B1%A1%E6%96%87%E4%BB%B6%E7%AC%A6%E5%8F%B7%E5%90%8D%E5%AD%97/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -607,7 +627,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/02/14/%E8%AE%BE%E8%AE%A1%E4%B9%8B%E4%B8%80%E4%B8%AAmap%E5%AE%B9%E5%99%A8%E5%92%8C%E5%8F%A6%E4%B8%80%E4%B8%AAmap%E5%AE%B9%E5%99%A8%E6%9C%89%E5%85%B3%E8%81%94/">
+    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/08/19/gcc%E7%A8%8B%E5%BA%8F%E9%93%BE%E6%8E%A52%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%E5%B9%B6%E8%AE%BF%E9%97%AE%E4%B9%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MichaelMa">
@@ -626,7 +646,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/02/14/%E8%AE%BE%E8%AE%A1%E4%B9%8B%E4%B8%80%E4%B8%AAmap%E5%AE%B9%E5%99%A8%E5%92%8C%E5%8F%A6%E4%B8%80%E4%B8%AAmap%E5%AE%B9%E5%99%A8%E6%9C%89%E5%85%B3%E8%81%94/" itemprop="url">设计之一个map容器和另一个map容器有关联</a></h1>
+                <a class="post-title-link" href="/2020/08/19/gcc%E7%A8%8B%E5%BA%8F%E9%93%BE%E6%8E%A52%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%E5%B9%B6%E8%AE%BF%E9%97%AE%E4%B9%8B/" itemprop="url">gcc程序链接2进制文件并访问之</a></h1>
         
 
         <div class="post-meta">
@@ -638,8 +658,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-14T16:41:00+08:00">
-                2020-02-14
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-19T19:23:00+08:00">
+                2020-08-19
               </time>
             
 
@@ -677,14 +697,10 @@
 
       
         
-          <p>有这样一个容器</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">map</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>, Element*&gt; myMap;</span><br><span class="line">... <span class="comment">// 添加了很多元素到myMap中去</span></span><br></pre></td></tr></table></figure>
-
-<p>现在又有另外一个容器，它的功能需要用到上面容器的Element*元素</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">map</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>, /*这个地方是什么？*/&gt; myOtherMap;</span><br></pre></td></tr></table></figure>
+          <p>一个在编译期连接blob对象的例子</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2020/02/14/%E8%AE%BE%E8%AE%A1%E4%B9%8B%E4%B8%80%E4%B8%AAmap%E5%AE%B9%E5%99%A8%E5%92%8C%E5%8F%A6%E4%B8%80%E4%B8%AAmap%E5%AE%B9%E5%99%A8%E6%9C%89%E5%85%B3%E8%81%94/#more" rel="contents">
+            <a class="btn" href="/2020/08/19/gcc%E7%A8%8B%E5%BA%8F%E9%93%BE%E6%8E%A52%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%E5%B9%B6%E8%AE%BF%E9%97%AE%E4%B9%8B/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -735,7 +751,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/02/14/%E8%AE%BE%E8%AE%A1%E4%B9%8B%E5%9C%A8%E4%B8%80%E4%B8%AA%E8%A2%AB%E9%94%81%E4%BF%9D%E6%8A%A4%E7%9A%84%E5%AE%B9%E5%99%A8%E4%B8%AD%E6%89%A7%E8%A1%8C%E6%B8%85%E6%A5%9A%E6%93%8D%E4%BD%9C/">
+    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/08/19/Linux%E9%80%9A%E8%BF%87%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6%E8%AE%BF%E9%97%AE%E5%86%85%E5%AD%98%E6%B5%81(%E8%BD%AC)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MichaelMa">
@@ -754,7 +770,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/02/14/%E8%AE%BE%E8%AE%A1%E4%B9%8B%E5%9C%A8%E4%B8%80%E4%B8%AA%E8%A2%AB%E9%94%81%E4%BF%9D%E6%8A%A4%E7%9A%84%E5%AE%B9%E5%99%A8%E4%B8%AD%E6%89%A7%E8%A1%8C%E6%B8%85%E6%A5%9A%E6%93%8D%E4%BD%9C/" itemprop="url">设计之在一个被锁保护的容器中执行清楚操作</a></h1>
+                <a class="post-title-link" href="/2020/08/19/Linux%E9%80%9A%E8%BF%87%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6%E8%AE%BF%E9%97%AE%E5%86%85%E5%AD%98%E6%B5%81(%E8%BD%AC)/" itemprop="url">Linux通过文件描述符访问内存流(转)</a></h1>
         
 
         <div class="post-meta">
@@ -766,8 +782,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-14T16:32:00+08:00">
-                2020-02-14
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-19T18:57:00+08:00">
+                2020-08-19
               </time>
             
 
@@ -805,14 +821,13 @@
 
       
         
-          <p>有这样一个容器</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">map</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>, Element*&gt; myMap;</span><br><span class="line">... <span class="comment">// 添加了很多元素到myMap中去</span></span><br></pre></td></tr></table></figure>
-
-<p>现在要对这个容器中的每一个元素都执行一个成员方法</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> it = myMap.<span class="built_in">begin</span>();</span><br><span class="line"><span class="keyword">for</span> (; it != myMap.<span class="built_in">end</span>(); ++i) &#123;</span><br><span class="line">    it-&gt;second-&gt;someFunction();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <p>fmemopen()函数打开一个内存流，使你可以读取或写入由buf指定的缓冲区。</p>
+<p>其返回FILE*fp就是打开的内存流，虽然仍使用FILE指针进行访问，但其实并没有底层文件（并没有磁盘上的实际文件，因为打开的内存流fp是在内存中的），所有的I/O都是通过在缓冲区与主存（就是内存）之间来回传送字节来完成的。</p>
+<p>使用第三方库的时候，很可能遇到这样的问题，我们需要处理某个文件，而这个文件不一定是从本地磁盘上读取，可能是分布式文件系统或者其他地方，而第三方库的接口却只提供了一个File *参数，意味着只能从磁盘加载，没法直接处理已经加载到内存的数据。</p>
+<p>这个时候，fmemopen就可以派上用场了，完美的将FILE对象映射到内存上，无需从磁盘上读取了。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2020/02/14/%E8%AE%BE%E8%AE%A1%E4%B9%8B%E5%9C%A8%E4%B8%80%E4%B8%AA%E8%A2%AB%E9%94%81%E4%BF%9D%E6%8A%A4%E7%9A%84%E5%AE%B9%E5%99%A8%E4%B8%AD%E6%89%A7%E8%A1%8C%E6%B8%85%E6%A5%9A%E6%93%8D%E4%BD%9C/#more" rel="contents">
+            <a class="btn" href="/2020/08/19/Linux%E9%80%9A%E8%BF%87%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6%E8%AE%BF%E9%97%AE%E5%86%85%E5%AD%98%E6%B5%81(%E8%BD%AC)/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -863,7 +878,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/01/23/python%E5%B0%86%E5%91%BD%E4%BB%A4%E7%9A%84%E8%BE%93%E5%87%BA%E5%AE%9A%E4%BD%8D%E5%88%B0%E6%96%87%E4%BB%B6/">
+    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/08/19/gcc%E4%BF%9D%E5%AD%98%E4%B8%AD%E9%97%B4%E6%96%87%E4%BB%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MichaelMa">
@@ -882,7 +897,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/01/23/python%E5%B0%86%E5%91%BD%E4%BB%A4%E7%9A%84%E8%BE%93%E5%87%BA%E5%AE%9A%E4%BD%8D%E5%88%B0%E6%96%87%E4%BB%B6/" itemprop="url">python将命令的输出定位到文件</a></h1>
+                <a class="post-title-link" href="/2020/08/19/gcc%E4%BF%9D%E5%AD%98%E4%B8%AD%E9%97%B4%E6%96%87%E4%BB%B6/" itemprop="url">gcc保存中间文件</a></h1>
         
 
         <div class="post-meta">
@@ -894,8 +909,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-23T14:16:00+08:00">
-                2020-01-23
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-19T18:37:00+08:00">
+                2020-08-19
               </time>
             
 
@@ -934,7 +949,18 @@
       
         
           
-            <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">stdoutToFile</span><span class="params">(filename, function, args)</span>:</span></span><br><span class="line">    oldstdout = sys.stdout</span><br><span class="line">    f = open(filename, <span class="string">'w'</span>)</span><br><span class="line">    sys.stdout = f</span><br><span class="line">    function(args)</span><br><span class="line">    sys.stdout.flush()</span><br><span class="line">    sys.stdout = oldstdout</span><br><span class="line">    f.close()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    stdoutToFile(<span class="string">'m.txt'</span>, help, <span class="string">'modules'</span>)</span><br></pre></td></tr></table></figure>
+            <p>gcc 在执行阶段的会输出 <em>.ii</em>, <em>.s</em>, <em>.s</em>, 最终的可执行文件共4个文件。默认情况下，用户在使用如下命令时仅会看到最终的可执行文件这一个文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc main.c -o myexpect</span><br></pre></td></tr></table></figure>
+
+<p>其余的中间文件默认情况下在编译阶段是输出到<em>/tmp</em>目录下面的，编译执行完之后，就删除了，所以看不到。</p>
+<p>使用下面的命令，可以保存整个编译阶段的所有文件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -save-temps=obj main.c -o myexpect</span><br></pre></td></tr></table></figure>
+
+<p>会看到有如下文件生成</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">myexpect.ii</span><br><span class="line">myexpect.s</span><br><span class="line">myexpect.o</span><br><span class="line">myexpect</span><br></pre></td></tr></table></figure>
+
+<p>当 <em>-save-temps=obj</em> 参数应用时，<em>-pipe</em> 即使应用了，也会被屏蔽，不起作用</p>
+
           
         
       
@@ -982,7 +1008,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/01/23/python%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A8%A1%E6%9D%BF/">
+    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/08/19/Linux%E7%A8%8B%E5%BA%8F%E8%BE%93%E5%87%BALinux%E7%BA%BF%E7%A8%8BID/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MichaelMa">
@@ -1001,7 +1027,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/01/23/python%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A8%A1%E6%9D%BF/" itemprop="url">python字符串模板</a></h1>
+                <a class="post-title-link" href="/2020/08/19/Linux%E7%A8%8B%E5%BA%8F%E8%BE%93%E5%87%BALinux%E7%BA%BF%E7%A8%8BID/" itemprop="url">Linux程序输出Linux线程ID</a></h1>
         
 
         <div class="post-meta">
@@ -1013,8 +1039,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-23T14:09:00+08:00">
-                2020-01-23
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-19T17:35:00+08:00">
+                2020-08-19
               </time>
             
 
@@ -1052,129 +1078,11 @@
 
       
         
-          
-            <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> string <span class="keyword">import</span> Template</span><br><span class="line"></span><br><span class="line">my_format = Template(<span class="string">'Does $x loves $y ?'</span>)</span><br><span class="line"></span><br><span class="line">one_string = my_format.substitute(x=<span class="string">'Michaelma'</span>, y=<span class="string">'self'</span>)</span><br><span class="line"></span><br><span class="line">print(one_string)</span><br><span class="line"><span class="comment"># Does Michaelma loves self ?</span></span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/01/23/python%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MichaelMa">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MichaelChao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/01/23/python%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95/" itemprop="url">python常用数据分析方法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-23T13:52:00+08:00">
-                2020-01-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="以逗号分割字符串且却去掉空白"><a href="#以逗号分割字符串且却去掉空白" class="headerlink" title="以逗号分割字符串且却去掉空白"></a>以逗号分割字符串且却去掉空白</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">names = <span class="string">'Michaelma, Chenlong, Guanyu'</span></span><br><span class="line"></span><br><span class="line">res = [name <span class="keyword">for</span> name <span class="keyword">in</span> names.split(<span class="string">','</span>) <span class="keyword">if</span> name.strip()] <span class="comment"># strip()方法会去除字符串两边多余的空格</span></span><br><span class="line"></span><br><span class="line">print(res)</span><br><span class="line"><span class="comment"># ['Michaelma', ' Chenlong', ' Guanyu']</span></span><br></pre></td></tr></table></figure>
+          <p>开启3个子线程的程序</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;chrono&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;thread&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/syscall.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::thread([]() &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"thread 1: "</span> &lt;&lt; syscall(__NR_gettid) &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="built_in">std</span>::this_thread::sleep_for(<span class="built_in">std</span>::chrono::seconds(<span class="number">2</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).<span class="built_in">detach</span>();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::thread([]() &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"thread 2: "</span> &lt;&lt; syscall(__NR_gettid) &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="built_in">std</span>::this_thread::sleep_for(<span class="built_in">std</span>::chrono::seconds(<span class="number">2</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).<span class="built_in">detach</span>();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::thread([]() &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"thread 3: "</span> &lt;&lt; syscall(__NR_gettid) &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="built_in">std</span>::this_thread::sleep_for(<span class="built_in">std</span>::chrono::seconds(<span class="number">2</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).<span class="built_in">detach</span>();</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">std</span>::this_thread::sleep_for(<span class="built_in">std</span>::chrono::seconds(<span class="number">2</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2020/01/23/python%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95/#more" rel="contents">
+            <a class="btn" href="/2020/08/19/Linux%E7%A8%8B%E5%BA%8F%E8%BE%93%E5%87%BALinux%E7%BA%BF%E7%A8%8BID/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1225,7 +1133,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/01/23/python%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%85%A7%E5%BB%BA%E5%B8%B8%E9%87%8F/">
+    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/08/19/wayland-ivi-extension%E4%B8%8B%E7%9A%84%E6%88%AA%E5%B1%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MichaelMa">
@@ -1244,7 +1152,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/01/23/python%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%85%A7%E5%BB%BA%E5%B8%B8%E9%87%8F/" itemprop="url">python字符串的內建常量</a></h1>
+                <a class="post-title-link" href="/2020/08/19/wayland-ivi-extension%E4%B8%8B%E7%9A%84%E6%88%AA%E5%B1%8F/" itemprop="url">wayland-ivi-extension下的截屏</a></h1>
         
 
         <div class="post-meta">
@@ -1256,8 +1164,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-23T13:48:00+08:00">
-                2020-01-23
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-19T17:09:00+08:00">
+                2020-08-19
               </time>
             
 
@@ -1296,7 +1204,8 @@
       
         
           
-            <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"></span><br><span class="line">print(string.digits) <span class="comment"># '0123456789' 阿拉伯数字</span></span><br><span class="line"></span><br><span class="line">print(string.ascii_lowercase) <span class="comment"># 'abcdefghijklmnopqrstuvwxyz' 26个字母小写</span></span><br><span class="line"></span><br><span class="line">print(string.ascii_uppercase) <span class="comment"># 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' 26个字母大写</span></span><br><span class="line"></span><br><span class="line">print(string.punctuation) <span class="comment"># '!"#$%&amp;\'()*+,-./:;&lt;=&gt;?@[\\]^_`&#123;|&#125;~' 标点符号</span></span><br></pre></td></tr></table></figure>
+            <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> XDG_RUNTIME_DIR=/run/user/root</span><br><span class="line">LayerManagerControl dump screen 0 to ~/screen.png</span><br></pre></td></tr></table></figure>
+
           
         
       
@@ -1344,7 +1253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/01/23/python%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%88%87%E7%89%87/">
+    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/08/19/gcc%E7%9A%84%E6%89%80%E6%9C%89warning%E9%80%89%E9%A1%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MichaelMa">
@@ -1363,7 +1272,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/01/23/python%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%88%87%E7%89%87/" itemprop="url">python字符串的切片</a></h1>
+                <a class="post-title-link" href="/2020/08/19/gcc%E7%9A%84%E6%89%80%E6%9C%89warning%E9%80%89%E9%A1%B9/" itemprop="url">gcc的所有warning选项</a></h1>
         
 
         <div class="post-meta">
@@ -1375,8 +1284,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-23T13:23:00+08:00">
-                2020-01-23
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-19T15:14:00+08:00">
+                2020-08-19
               </time>
             
 
@@ -1415,8 +1324,132 @@
       
         
           
-            <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">string = <span class="string">'0123456789'</span>  <span class="comment">#string[start:stop:step]   遵循【左闭右开】规则</span></span><br><span class="line"></span><br><span class="line">print(string[<span class="number">0</span>:<span class="number">3</span>])     <span class="comment">#截取第一位到第三位的字符                                #012</span></span><br><span class="line">print(string[<span class="number">1</span>:<span class="number">5</span>])     <span class="comment">#截取第二位到第六位之前的字符                             #1234</span></span><br><span class="line">print(string[:])       <span class="comment">#截取字符串的全部字符                                    #0123456789</span></span><br><span class="line">print(string[<span class="number">6</span>:])      <span class="comment">#截取第七个字符到结尾                     　　　　　　　    #6789</span></span><br><span class="line">print(string[:<span class="number">-3</span>])     <span class="comment">#截取从头开始到倒数第三个字符之前           　　　　　　　    #0123456</span></span><br><span class="line">print(string[<span class="number">2</span>])       <span class="comment">#截取第三个字符                           　　　　　　     #2</span></span><br><span class="line">print(string[<span class="number">-1</span>])      <span class="comment">#截取倒数第一个字符                    　　　　　　　　     #9</span></span><br><span class="line">print(string[::<span class="number">-1</span>])    <span class="comment">#创造一个与原字符串顺序相反的字符串        　　　　　　　  　  #9876543210</span></span><br><span class="line">print(string[<span class="number">-3</span>:<span class="number">-1</span>])   <span class="comment">#截取倒数第三位与倒数第一位之前的字符       　　　　　　　 　  #78</span></span><br><span class="line">print(string[<span class="number">-3</span>:])     <span class="comment">#截取倒数第三位到结尾                    　　　　　　　   　 #789</span></span><br><span class="line">print(string[:<span class="number">-5</span>:<span class="number">-3</span>])  <span class="comment">#逆序截取，步长为3                     　　　　　　　　　　  #96</span></span><br><span class="line">print(string[<span class="number">9</span>:<span class="number">0</span>:<span class="number">-1</span>])  <span class="comment">#逆序截取，起始值为列表的第10为数，到列表第1位数之前的数结束，　　#987654321</span></span><br><span class="line">print(string[<span class="number">0</span>:<span class="number">12</span>])    <span class="comment">#截取全部元素</span></span><br></pre></td></tr></table></figure>
+            <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -Q --<span class="built_in">help</span>=warning</span><br></pre></td></tr></table></figure>
           
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/08/18/gcc%E7%9A%84%E5%8F%82%E6%95%B02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MichaelMa">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MichaelChao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/08/18/gcc%E7%9A%84%E5%8F%82%E6%95%B02/" itemprop="url">gcc的参数2</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-18T15:14:00+08:00">
+                2020-08-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="Werror-uinitialized"><a href="#Werror-uinitialized" class="headerlink" title="-Werror=uinitialized"></a>-Werror=uinitialized</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">test</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    test();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/08/18/gcc%E7%9A%84%E5%8F%82%E6%95%B02/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1454,7 +1487,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next</a>
   </nav>
 
 
@@ -1500,7 +1533,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">76</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1513,7 +1546,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
