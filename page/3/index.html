@@ -241,6 +241,271 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/08/10/apt-cache/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MichaelMa">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MichaelChao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/08/10/apt-cache/" itemprop="url">apt-cache</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-10T14:42:00+08:00">
+                2020-08-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="显示包的依赖"><a href="#显示包的依赖" class="headerlink" title="显示包的依赖"></a>显示包的依赖</h3><ul>
+<li>apt-cache depends 包名</li>
+</ul>
+<h3 id="显示包的基本信息"><a href="#显示包的基本信息" class="headerlink" title="显示包的基本信息"></a>显示包的基本信息</h3><ul>
+<li>apt-cache show 包名</li>
+</ul>
+<h3 id="在不确定完整包名时执行搜索"><a href="#在不确定完整包名时执行搜索" class="headerlink" title="在不确定完整包名时执行搜索"></a>在不确定完整包名时执行搜索</h3><ul>
+<li>apt-cache search 包名中的某个字符</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/08/10/nohup%E5%92%8C&%E7%9A%84%E5%8C%BA%E5%88%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MichaelMa">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MichaelChao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/08/10/nohup%E5%92%8C&%E7%9A%84%E5%8C%BA%E5%88%AB/" itemprop="url">nohup和&的区别</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-10T14:40:00+08:00">
+                2020-08-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>使用&amp;后台运行程序：<ul>
+<li>结果会输出到终端</li>
+<li>使用<code>Ctrl + C</code>发送<em>SIGINT</em>信号，程序免疫</li>
+<li>关闭session发送<em>SIGHUP</em>信号，程序关闭</li>
+</ul>
+</li>
+<li>使用nohup运行程序：<ul>
+<li>结果默认会输出到当前<em>nohup.out</em>(如果当前目录的<em>nohup.out</em>文件不可写，输出重定向到 <em>$HOME/nohup.out</em>文件中)</li>
+<li>使用<code>Ctrl + C</code>发送SIGINT信号，程序关闭</li>
+<li>关闭session发送<em>SIGHUP</em>信号，程序免疫</li>
+</ul>
+</li>
+<li>平日线上经常使用nohup和&amp;配合来启动程序：<ul>
+<li>同时免疫<em>SIGINT</em>和<em>SIGHUP</em>信号</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/08/10/Linux%E7%BB%88%E7%AB%AF%E4%BB%BB%E5%8A%A1%E7%AE%A1%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1257,255 +1522,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/06/08/systemd%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MichaelMa">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MichaelChao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/06/08/systemd%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C/" itemprop="url">systemd的一些操作</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-08T21:39:00+08:00">
-                2020-06-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop &lt;service name&gt; 关闭服务</span><br><span class="line">systemctl start &lt;service name&gt; 启动服务</span><br><span class="line">systemctl daemon-reload 修改了某个服务的service文件后，运行此命令</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/05/16/Markdown%E6%B7%BB%E5%8A%A0%E9%94%9A%E7%82%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MichaelMa">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MichaelChao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/16/Markdown%E6%B7%BB%E5%8A%A0%E9%94%9A%E7%82%B9/" itemprop="url">Markdown添加锚点</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-16T10:34:00+08:00">
-                2020-05-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>某些场景下，需要在Markdown文档A中添加跳转到Markdown文档B中某个具体的位置，这样的一个跳转点称为<strong><em>锚点</em></strong></p>
-<p>Markdown文件A和B位于同级目录下</p>
-<ul>
-<li>Markdown文件A内容</li>
-</ul>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">目标标题中所有大写字母都用小写字母替代</span><br><span class="line"></span><br><span class="line">Press me to [jump] (./B.md#level1)</span><br><span class="line"></span><br><span class="line">目标标题中若有空格，用中横线替代</span><br><span class="line"></span><br><span class="line">Press me to [jump] (./B.md#level-2)</span><br><span class="line"></span><br><span class="line">目标标题可以任意指定</span><br><span class="line"></span><br><span class="line">Press me to [jump] (./B.md#level3)</span><br><span class="line"></span><br><span class="line">目标标题中若已经有中横线，保留</span><br><span class="line"></span><br><span class="line">Press me to [jump] (./B.md#level-4)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Markdown文件B内容</li>
-</ul>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># Level0</span></span><br><span class="line"></span><br><span class="line"><span class="section"># Level1</span></span><br><span class="line"></span><br><span class="line"><span class="section"># Level 2</span></span><br><span class="line"></span><br><span class="line"><span class="section">## Level3</span></span><br><span class="line"></span><br><span class="line"><span class="section"># Level-4</span></span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1556,7 +1572,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">76</span>
+                  <span class="site-state-item-count">78</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

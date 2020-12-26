@@ -241,6 +241,255 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/06/08/systemd%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MichaelMa">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MichaelChao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/06/08/systemd%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C/" itemprop="url">systemd的一些操作</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-08T21:39:00+08:00">
+                2020-06-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop &lt;service name&gt; 关闭服务</span><br><span class="line">systemctl start &lt;service name&gt; 启动服务</span><br><span class="line">systemctl daemon-reload 修改了某个服务的service文件后，运行此命令</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/05/16/Markdown%E6%B7%BB%E5%8A%A0%E9%94%9A%E7%82%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MichaelMa">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MichaelChao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/16/Markdown%E6%B7%BB%E5%8A%A0%E9%94%9A%E7%82%B9/" itemprop="url">Markdown添加锚点</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-16T10:34:00+08:00">
+                2020-05-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>某些场景下，需要在Markdown文档A中添加跳转到Markdown文档B中某个具体的位置，这样的一个跳转点称为<strong><em>锚点</em></strong></p>
+<p>Markdown文件A和B位于同级目录下</p>
+<ul>
+<li>Markdown文件A内容</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">目标标题中所有大写字母都用小写字母替代</span><br><span class="line"></span><br><span class="line">Press me to [jump] (./B.md#level1)</span><br><span class="line"></span><br><span class="line">目标标题中若有空格，用中横线替代</span><br><span class="line"></span><br><span class="line">Press me to [jump] (./B.md#level-2)</span><br><span class="line"></span><br><span class="line">目标标题可以任意指定</span><br><span class="line"></span><br><span class="line">Press me to [jump] (./B.md#level3)</span><br><span class="line"></span><br><span class="line">目标标题中若已经有中横线，保留</span><br><span class="line"></span><br><span class="line">Press me to [jump] (./B.md#level-4)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Markdown文件B内容</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># Level0</span></span><br><span class="line"></span><br><span class="line"><span class="section"># Level1</span></span><br><span class="line"></span><br><span class="line"><span class="section"># Level 2</span></span><br><span class="line"></span><br><span class="line"><span class="section">## Level3</span></span><br><span class="line"></span><br><span class="line"><span class="section"># Level-4</span></span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/05/08/OAuth2.0%E6%A6%82%E5%BF%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1238,272 +1487,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/03/16/git%E4%B9%8B%E6%96%87%E4%BB%B6%E5%9B%9E%E9%80%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MichaelMa">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MichaelChao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/03/16/git%E4%B9%8B%E6%96%87%E4%BB%B6%E5%9B%9E%E9%80%80/" itemprop="url">git之文件回退</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-16T19:28:00+08:00">
-                2020-03-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时"><a href="#当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时" class="headerlink" title="当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时"></a>当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- file</span><br></pre></td></tr></table></figure>
-
-<h1 id="当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改"><a href="#当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改" class="headerlink" title="当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改"></a>当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD(或 --) file &#x2F;&#x2F; 此步执行后，文件回到了ben</span><br><span class="line">git checkout -- file</span><br></pre></td></tr></table></figure>
-
-<h1 id="假设你的文件已经被commit到本地仓库中"><a href="#假设你的文件已经被commit到本地仓库中" class="headerlink" title="假设你的文件已经被commit到本地仓库中"></a>假设你的文件已经被commit到本地仓库中</h1><p>那就要版本回退了</p>
-<h1 id="本地git-add后又修改了文件后回退"><a href="#本地git-add后又修改了文件后回退" class="headerlink" title="本地git add后又修改了文件后回退"></a>本地git add后又修改了文件后回退</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim some.txt(已经被git跟踪了)</span><br><span class="line">git add -u</span><br><span class="line">vim some.txt</span><br></pre></td></tr></table></figure>
-
-<h2 id="若准备用本库仓库上的文件覆盖本地的修改"><a href="#若准备用本库仓库上的文件覆盖本地的修改" class="headerlink" title="若准备用本库仓库上的文件覆盖本地的修改"></a>若准备用本库仓库上的文件覆盖本地的修改</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout HEAD -- some.txt</span><br></pre></td></tr></table></figure>
-
-<p>此步执行后，staged区域和本地的some.txt都将被本地仓库上文件覆盖<br>执行git status，将显示没有任何改动</p>
-<h2 id="若准备用stagedq区域上的文件覆盖本地的修改"><a href="#若准备用stagedq区域上的文件覆盖本地的修改" class="headerlink" title="若准备用stagedq区域上的文件覆盖本地的修改"></a>若准备用stagedq区域上的文件覆盖本地的修改</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- some.txt</span><br></pre></td></tr></table></figure>
-
-<p>此步执行后，本地修改和staged区域就保持同步了<br>执行git status，将显示可以执行git commit提交staged区域的改动</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://michaelchao.github.io/2020/03/16/git%E4%B9%8B%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MichaelMa">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MichaelChao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/03/16/git%E4%B9%8B%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/" itemprop="url">git之版本回退</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-16T18:51:00+08:00">
-                2020-03-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="回退git-commit操作和git-add操作"><a href="#回退git-commit操作和git-add操作" class="headerlink" title="回退git commit操作和git add操作"></a>回退git commit操作和git add操作</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --mixed ...</span><br></pre></td></tr></table></figure>
-
-<p>此为默认方式，不带任何参数的git reset，即时这种方式，它回退到某个版本，只保留自己修改的源码，回退git commit操作和git add操作</p>
-<h1 id="回退git-commit"><a href="#回退git-commit" class="headerlink" title="回退git commit"></a>回退git commit</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --soft ...</span><br></pre></td></tr></table></figure>
-
-<p>回退到某个版本，只回退了commit的信息。如果还要提交，直接commit即可</p>
-<h1 id="彻底回本地的源码为上一个版本的内容"><a href="#彻底回本地的源码为上一个版本的内容" class="headerlink" title="彻底回本地的源码为上一个版本的内容"></a>彻底回本地的源码为上一个版本的内容</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard ...</span><br></pre></td></tr></table></figure>
-
-<p>彻底回退到某个版本，本地的源码也会变为上一个版本的内容，慎用！</p>
-<h1 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h1><p>一般我们git add, git commit 代码之后，git log会长下面这样：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">commit e8aea6c4ffa75104895f4f6c6ff231396f0d3e64 (HEAD -&gt; master)</span><br><span class="line">Author: machao1011 &lt;michaelma@xxx.com&gt;</span><br><span class="line">Date:   Mon Mar 16 19:02:10 2020 +0800</span><br><span class="line"></span><br><span class="line">    [DEV] test2</span><br><span class="line"></span><br><span class="line">commit 93e4637b86c986d21b1d89da3419ff55bb95c0ea (origin&#x2F;master, origin&#x2F;HEAD)</span><br><span class="line">Author: machao1011 &lt;michaelma@xxx.com&gt;</span><br><span class="line">Date:   Fri Mar 13 13:56:47 2020 +0800</span><br><span class="line"></span><br><span class="line">    [DEV] test1</span><br></pre></td></tr></table></figure>
-
-<p>如果我们想撤销刚才的修改，让HEAD和remote保持一样，可以这样使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset (--mixed 或 --soft 或 --hard) HEAD^1</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1554,7 +1537,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">76</span>
+                  <span class="site-state-item-count">78</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
